@@ -43,39 +43,41 @@
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
+  /* DUCKS CLUB - Esportivo Moderno com Toque Lúdico */
+  /* Paleta: Azul Marinho + Laranja + Dourado */
+  --primary: #003366;
+  --primary-foreground: #FFFFFF;
+  --sidebar-primary: #003366;
+  --sidebar-primary-foreground: #FFFFFF;
+  --chart-1: #FF8C00;
+  --chart-2: #FFD700;
+  --chart-3: #FF6B6B;
+  --chart-4: #003366;
+  --chart-5: #1A1A1A;
   --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  --background: #F5F5F5;
+  --foreground: #1A1A1A;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+  --secondary: #FF8C00;
+  --secondary-foreground: #FFFFFF;
+  --muted: #E0E0E0;
+  --muted-foreground: #666666;
+  --accent: #FFD700;
+  --accent-foreground: #003366;
+  --destructive: #FF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #CCCCCC;
+  --input: #FFFFFF;
+  --ring: #003366;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1A1A1A;
+  --sidebar-accent: #FF8C00;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #CCCCCC;
+  --sidebar-ring: #003366;
 }
 
 .dark {
@@ -119,6 +121,11 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.05em;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
