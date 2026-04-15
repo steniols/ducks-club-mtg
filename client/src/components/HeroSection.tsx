@@ -25,7 +25,7 @@ export default function HeroSection() {
             Torneios Mensais de Magic: The Gathering
           </p>
           <p className="text-lg text-gray-100 mb-12 max-w-2xl mx-auto">
-            Bem-vindo ao maior (e mais divertido) grupo de Magic da região. Aqui celebramos os campeões e zoamos o pato com estilo.
+            Torneio de MTG feito na mesa da cozinha, extremamente competitivo e valendo nada.
           </p>
           
           <div className="flex gap-4 justify-center flex-wrap">

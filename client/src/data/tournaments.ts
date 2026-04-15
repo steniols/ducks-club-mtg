@@ -95,8 +95,9 @@ export const calculateMetagame = (): MetagameStats[] => {
           deckStats[deck] = { appearances: 0, wins: 0 };
         }
         deckStats[deck].appearances += 1;
-        // First place gets a win
-        if (player.name === tournament.champion) {
+        // Primeiro lugar (maior pontuacao) ganha
+        const maxPoints = Math.max(...tournament.players.map(p => p.points));
+        if (player.points === maxPoints) {
           deckStats[deck].wins += 1;
         }
       });
