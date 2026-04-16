@@ -5,6 +5,7 @@ import RankingSection from "@/components/RankingSection";
 import MetagameSection from "@/components/MetagameSection";
 import TournamentsSection from "@/components/TournamentsSection";
 import DuckSection from "@/components/DuckSection";
+import GallerySection from "@/components/GallerySection";
 import Footer from "@/components/Footer";
 
 /**
@@ -32,6 +33,7 @@ export default function Home() {
         <ChampionSection />
         <RankingSection />
         <MetagameSection />
+        <GallerySection />
         <TournamentsSection />
         <DuckSection />
       </main>

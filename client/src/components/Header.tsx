@@ -40,10 +40,16 @@ export default function Header() {
             Metagame
           </button>
           <button 
+            onClick={() => scrollToSection('gallery')}
+            className="text-foreground hover:text-primary font-medium transition-colors cursor-pointer bg-none border-none p-0"
+          >
+            Galeria
+          </button>
+          <button 
             onClick={() => scrollToSection('duck')}
             className="text-destructive hover:text-red-700 font-bold transition-colors cursor-pointer bg-none border-none p-0"
           >
-            🦆 O PATO
+            O PATO
           </button>
         </nav>
       </div>
