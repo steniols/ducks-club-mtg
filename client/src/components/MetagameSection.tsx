@@ -45,7 +45,7 @@ export default function MetagameSection() {
             <CardTitle className="text-primary">Distribuição de Decks</CardTitle>
           </CardHeader>
           <CardContent>
-            <ResponsiveContainer width="100%" height={400}>
+            <ResponsiveContainer width="100%" height={550}>
               <PieChart>
                 <Pie
                   data={metagame}
