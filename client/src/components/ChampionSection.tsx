@@ -27,7 +27,7 @@ export default function ChampionSection() {
             <img 
               src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029555026/KkG9CmMFx3FsZmCnqMBDyE/pasted_file_z8gLjk_image_2cb08fc5.png"
               alt={champion}
-              className="w-48 h-48 rounded-lg object-cover mx-auto mb-6 shadow-lg border-2 border-primary"
+              className="w-64 h-80 rounded-lg object-cover mx-auto mb-6 shadow-lg border-2 border-primary"
             />
             <p className="text-6xl md:text-7xl font-bold text-primary mb-4 drop-shadow-lg">
               {champion}
