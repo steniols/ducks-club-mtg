@@ -33,12 +33,9 @@ export default function Footer() {
 
         <div className="border-t border-white/20 pt-8 text-center text-sm text-gray-200">
           <p>
-            Feito com ❤️ para a comunidade DUCKS CLUB
-          </p>
-          <p className="mt-2">
             © 2026 DUCKS CLUB - MTG Tournaments. Todos os direitos reservados.
           </p>
-          <p className="mt-4 text-xs text-gray-300">
+          <p className="mt-2 text-xs text-gray-300">
             Magic: The Gathering é uma marca registrada da Wizards of the Coast.
           </p>
         </div>

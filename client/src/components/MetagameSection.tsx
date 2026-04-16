@@ -53,7 +53,7 @@ export default function MetagameSection() {
                   nameKey="deckName"
                   cx="50%"
                   cy="50%"
-                  outerRadius={120}
+                  outerRadius={180}
                   label={({ deckName, appearances }) => {
                     const percentage = ((appearances / totalAppearances) * 100).toFixed(1);
                     return `${deckName}: ${percentage}%`;
