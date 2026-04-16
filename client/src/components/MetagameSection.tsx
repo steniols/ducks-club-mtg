@@ -1,10 +1,13 @@
 import { calculateMetagame } from "@/data/tournaments";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function MetagameSection() {
   const metagame = calculateMetagame();
   const topDecks = metagame.slice(0, 8);
+
+  // Calcular total de aparições para percentuais
+  const totalAppearances = metagame.reduce((sum, d) => sum + d.appearances, 0);
 
   return (
     <section id="metagame" className="py-20 bg-slate-50">
@@ -16,7 +19,7 @@ export default function MetagameSection() {
           Decks mais populares e seus desempenhos
         </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 gap-8 mb-12">
           {/* Aparições por Deck */}
           <Card className="shadow-lg border-2 border-primary">
             <CardHeader>
@@ -34,27 +37,9 @@ export default function MetagameSection() {
               </ResponsiveContainer>
             </CardContent>
           </Card>
-
-          {/* Taxa de Vitória */}
-          <Card className="shadow-lg border-2 border-secondary">
-            <CardHeader>
-              <CardTitle className="text-secondary">Taxa de Vitória</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={topDecks}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="deckName" angle={-45} textAnchor="end" height={80} fontSize={12} />
-                  <YAxis />
-                  <Tooltip formatter={(value: any) => `${Number(value).toFixed(1)}%`} />
-                  <Bar dataKey="winRate" fill="#FF8C00" radius={[8, 8, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </CardContent>
-          </Card>
         </div>
 
-        {/* Distribuição de Decks */}
+        {/* Distribuição de Decks com Percentual */}
         <Card className="shadow-lg border-2 border-accent mb-8">
           <CardHeader>
             <CardTitle className="text-primary">Distribuição de Decks</CardTitle>
@@ -63,19 +48,27 @@ export default function MetagameSection() {
             <ResponsiveContainer width="100%" height={400}>
               <PieChart>
                 <Pie
-                  data={topDecks}
+                  data={metagame}
                   dataKey="appearances"
                   nameKey="deckName"
                   cx="50%"
                   cy="50%"
                   outerRadius={120}
-                  label={({ deckName, appearances }) => `${deckName}: ${appearances}`}
+                  label={({ deckName, appearances }) => {
+                    const percentage = ((appearances / totalAppearances) * 100).toFixed(1);
+                    return `${deckName}: ${percentage}%`;
+                  }}
                 >
-                  {topDecks.map((entry, index) => (
+                  {metagame.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
-                <Tooltip />
+                <Tooltip 
+                  formatter={(value: any) => {
+                    const percentage = ((Number(value) / totalAppearances) * 100).toFixed(1);
+                    return `${percentage}%`;
+                  }}
+                />
               </PieChart>
             </ResponsiveContainer>
           </CardContent>
@@ -93,23 +86,26 @@ export default function MetagameSection() {
                   <tr className="border-b-2 border-primary">
                     <th className="text-left py-3 px-4 font-bold text-primary">Deck</th>
                     <th className="text-center py-3 px-4 font-bold text-primary">Aparições</th>
-                    <th className="text-center py-3 px-4 font-bold text-primary">Taxa de Vitória</th>
+                    <th className="text-center py-3 px-4 font-bold text-primary">Percentual</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {metagame.map((deck, index) => (
-                    <tr key={deck.deckName} className={index % 2 === 0 ? "bg-white" : "bg-slate-50"}>
-                      <td className="py-3 px-4 font-semibold text-foreground">{deck.deckName}</td>
-                      <td className="text-center py-3 px-4">
-                        <span className="bg-primary text-white px-3 py-1 rounded-full font-bold">
-                          {deck.appearances}
-                        </span>
-                      </td>
-                      <td className="text-center py-3 px-4">
-                        <span className="text-secondary font-bold">{deck.winRate.toFixed(1)}%</span>
-                      </td>
-                    </tr>
-                  ))}
+                  {metagame.map((deck, index) => {
+                    const percentage = ((deck.appearances / totalAppearances) * 100).toFixed(1);
+                    return (
+                      <tr key={deck.deckName} className={index % 2 === 0 ? "bg-white" : "bg-slate-50"}>
+                        <td className="py-3 px-4 font-semibold text-foreground">{deck.deckName}</td>
+                        <td className="text-center py-3 px-4">
+                          <span className="bg-primary text-white px-3 py-1 rounded-full font-bold">
+                            {deck.appearances}
+                          </span>
+                        </td>
+                        <td className="text-center py-3 px-4">
+                          <span className="text-secondary font-bold">{percentage}%</span>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
