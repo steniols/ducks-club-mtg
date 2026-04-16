@@ -1,5 +1,12 @@
 import { Link } from "wouter";
 
+const scrollToSection = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 export default function Header() {
   return (
     <header className="bg-white shadow-md border-b-4 border-primary sticky top-0 z-50">
@@ -20,15 +27,24 @@ export default function Header() {
           <Link href="/" className="text-foreground hover:text-primary font-medium transition-colors">
             Home
           </Link>
-          <Link href="/#ranking" className="text-foreground hover:text-primary font-medium transition-colors">
+          <button 
+            onClick={() => scrollToSection('ranking')}
+            className="text-foreground hover:text-primary font-medium transition-colors cursor-pointer bg-none border-none p-0"
+          >
             Ranking
-          </Link>
-          <Link href="/#metagame" className="text-foreground hover:text-primary font-medium transition-colors">
+          </button>
+          <button 
+            onClick={() => scrollToSection('metagame')}
+            className="text-foreground hover:text-primary font-medium transition-colors cursor-pointer bg-none border-none p-0"
+          >
             Metagame
-          </Link>
-          <Link href="/#duck" className="text-destructive hover:text-red-700 font-bold transition-colors">
+          </button>
+          <button 
+            onClick={() => scrollToSection('duck')}
+            className="text-destructive hover:text-red-700 font-bold transition-colors cursor-pointer bg-none border-none p-0"
+          >
             🦆 O PATO
-          </Link>
+          </button>
         </nav>
       </div>
     </header>
