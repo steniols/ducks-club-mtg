@@ -12,17 +12,17 @@ interface GalleryImage {
 const galleryImages: GalleryImage[] = [
   {
     id: 1,
-    month: "Fevereiro",
-    year: 2026,
-    url: "https://d2xsxph8kpxj0f.cloudfront.net/310419663029555026/KkG9CmMFx3FsZmCnqMBDyE/fevereiro_39818cc8.jpg",
-    description: "Torneio de Fevereiro - Momento épico do campeonato!",
-  },
-  {
-    id: 2,
     month: "Janeiro",
     year: 2026,
     url: "https://d2xsxph8kpxj0f.cloudfront.net/310419663029555026/KkG9CmMFx3FsZmCnqMBDyE/janeiro_8951d5d4.jpeg",
     description: "Torneio de Janeiro - O início de uma lenda!",
+  },
+  {
+    id: 2,
+    month: "Fevereiro",
+    year: 2026,
+    url: "https://d2xsxph8kpxj0f.cloudfront.net/310419663029555026/KkG9CmMFx3FsZmCnqMBDyE/fevereiro_39818cc8.jpg",
+    description: "Torneio de Fevereiro - Momento épico do campeonato!",
   },
   {
     id: 3,
