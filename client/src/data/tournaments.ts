@@ -96,6 +96,12 @@ export const calculateMetagame = (): MetagameStats[] => {
         if (deck === "White Wennie") {
           normalizedDeck = "White Weenie";
         }
+        if (deck === "Mono Red Madness") {
+          normalizedDeck = "Madness Burn";
+        }
+        if (deck === "Jund Wildfire") {
+          normalizedDeck = "Jund";
+        }
 
         if (!deckStats[normalizedDeck]) {
           deckStats[normalizedDeck] = { appearances: 0, wins: 0 };
@@ -123,7 +129,7 @@ export const calculateMetagame = (): MetagameStats[] => {
 const getColorForDeck = (deckName: string): string => {
   const colorMap: { [key: string]: string } = {
     "Affinity": "#FF6B6B",
-    "Jund Wildfire": "#8B4513",
+    "Jund": "#8B4513",
     "RG Monsters": "#FF8C00",
     "Walls Combo": "#4169E1",
     "Jeskai Wildfire": "#FFD700",
@@ -133,8 +139,6 @@ const getColorForDeck = (deckName: string): string => {
     "Temur Ramp": "#228B22",
     "GlintBlade": "#00CED1",
     "White Weenie": "#F0F8FF",
-    "Jund": "#8B4513",
-    "Mono Red Madness": "#FF0000",
     "Mono U Terror": "#0000CD",
     "Spy Walls": "#4B0082",
     "BG Tokens": "#2F4F2F",
@@ -177,6 +181,12 @@ export const calculatePlayerStats = () => {
         let normalizedDeck = deck;
         if (deck === "White Wennie") {
           normalizedDeck = "White Weenie";
+        }
+        if (deck === "Mono Red Madness") {
+          normalizedDeck = "Madness Burn";
+        }
+        if (deck === "Jund Wildfire") {
+          normalizedDeck = "Jund";
         }
         playerStats[normalizedName].decks.add(normalizedDeck);
       });
