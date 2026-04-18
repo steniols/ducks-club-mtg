@@ -1,8 +1,9 @@
-import { getCurrentChampion } from "@/data/tournaments";
+import { getCurrentChampion, tournaments } from "@/data/tournaments";
 import { Trophy } from "lucide-react";
 
 export default function ChampionSection() {
   const champion = getCurrentChampion();
+  const lastTournament = tournaments[tournaments.length - 1];
 
   return (
     <section className="py-16 bg-gradient-to-r from-accent to-yellow-400 relative overflow-hidden">
@@ -25,7 +26,7 @@ export default function ChampionSection() {
           
           <div className="bg-white rounded-lg shadow-2xl p-8 border-4 border-primary">
             <img 
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029555026/KkG9CmMFx3FsZmCnqMBDyE/pasted_file_z8gLjk_image_2cb08fc5.png"
+              src="/manus-storage/1_c8e40eb7.jpg"
               alt={champion}
               className="w-64 h-80 rounded-lg object-cover mx-auto mb-6 shadow-lg border-2 border-primary"
             />
@@ -33,7 +34,7 @@ export default function ChampionSection() {
               {champion}
             </p>
             <p className="text-lg text-muted-foreground mb-4">
-              Torneio de Março 2026
+              Torneio de {lastTournament.month} {lastTournament.year}
             </p>
             <div className="h-1 w-24 bg-secondary mx-auto"></div>
           </div>

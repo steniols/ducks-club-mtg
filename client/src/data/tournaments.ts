@@ -24,9 +24,9 @@ export const tournaments: Tournament[] = [
     players: [
       { name: "Will", points: 12, decks: ["Madness Burn"] },
       { name: "Moa", points: 12, decks: ["Walls Combo"] },
-      { name: "Xulze", points: 12, decks: ["Affinity"] },
+      { name: "Xulze", points: 12, decks: ["Grixis Affinity"] },
       { name: "Nona", points: 9, decks: ["Temur Ramp"] },
-      { name: "Passos", points: 9, decks: ["Affinity"] },
+      { name: "Passos", points: 9, decks: ["Grixis Affinity"] },
       { name: "Bil", points: 9, decks: ["Madness Burn"] },
       { name: "Renan", points: 6, decks: ["Jund Wildfire"] },
       { name: "Hovelha", points: 6, decks: ["Jund Wildfire"] },
@@ -34,7 +34,7 @@ export const tournaments: Tournament[] = [
       { name: "Adriano", points: 6, decks: ["GlintBlade"] },
       { name: "Geniva", points: 3, decks: ["White Weenie"] },
     ],
-    decks: ["Madness Burn", "Walls Combo", "Affinity", "Temur Ramp", "Jund Wildfire", "GlintBlade", "White Weenie"],
+    decks: ["Madness Burn", "Walls Combo", "Grixis Affinity", "Temur Ramp", "Jund Wildfire", "GlintBlade", "White Weenie"],
   },
   {
     id: 2,
@@ -44,15 +44,15 @@ export const tournaments: Tournament[] = [
     duck: "Geniva",
     players: [
       { name: "Robertinho", points: 12, decks: ["Jund Wildfire"] },
-      { name: "Xulze", points: 9, decks: ["Affinity"] },
+      { name: "Xulze", points: 9, decks: ["Grixis Affinity"] },
       { name: "Hovelha", points: 9, decks: ["RG Monsters"] },
-      { name: "Renan", points: 9, decks: ["Affinity"] },
+      { name: "Renan", points: 9, decks: ["Grixis Affinity"] },
       { name: "Moa", points: 9, decks: ["Walls Combo"] },
       { name: "Adriano", points: 6, decks: ["Jeskai Wildfire"] },
       { name: "Passos", points: 3, decks: ["Mono Black Burn"] },
       { name: "Geniva", points: 3, decks: ["Ralkos Burn"] },
     ],
-    decks: ["Jund Wildfire", "Affinity", "RG Monsters", "Walls Combo", "Jeskai Wildfire", "Mono Black Burn", "Ralkos Burn"],
+    decks: ["Jund Wildfire", "Grixis Affinity", "RG Monsters", "Walls Combo", "Jeskai Wildfire", "Mono Black Burn", "Ralkos Burn"],
   },
   {
     id: 3,
@@ -65,16 +65,38 @@ export const tournaments: Tournament[] = [
       { name: "Steniols", points: 12, decks: ["White Weenie"] },
       { name: "Xulze", points: 10, decks: ["RG Monsters"] },
       { name: "Will", points: 9, decks: ["Spy Walls"] },
-      { name: "Adriano", points: 8, decks: ["Affinity"] },
+      { name: "Adriano", points: 8, decks: ["Grixis Affinity"] },
       { name: "Igor", points: 8, decks: ["GlintBlade"] },
-      { name: "Renan", points: 6, decks: ["Jund"] },
-      { name: "Bil", points: 6, decks: ["Mono Red Madness"] },
+      { name: "Renan", points: 6, decks: ["Jund Wildfire"] },
+      { name: "Bil", points: 6, decks: ["Madness Burn"] },
       { name: "Geniva", points: 4, decks: ["Mono U Terror"] },
       { name: "Hovelha", points: 4, decks: ["White Weenie"] },
       { name: "Moa", points: 3, decks: ["Spy Walls"] },
       { name: "Vitor", points: 1, decks: ["BG Tokens"] },
     ],
-    decks: ["Jeskai Synthesizer", "White Weenie", "RG Monsters", "Spy Walls", "Affinity", "GlintBlade", "Jund", "Mono Red Madness", "Mono U Terror", "BG Tokens"],
+    decks: ["Jeskai Synthesizer", "White Weenie", "RG Monsters", "Spy Walls", "Grixis Affinity", "GlintBlade", "Jund Wildfire", "Madness Burn", "Mono U Terror", "BG Tokens"],
+  },
+  {
+    id: 4,
+    month: "Abril",
+    year: 2026,
+    champion: "Walls Combo",
+    duck: "BG Cat Food",
+    players: [
+      { name: "Walls Combo", points: 18, decks: ["Walls Combo"] },
+      { name: "Jund Wildfire", points: 15, decks: ["Jund Wildfire"] },
+      { name: "Mono Black Sacrifice", points: 12, decks: ["Mono Black Sacrifice"] },
+      { name: "UB Terror", points: 12, decks: ["UB Terror"] },
+      { name: "Bogles", points: 12, decks: ["Bogles"] },
+      { name: "GlintBlade", points: 9, decks: ["GlintBlade"] },
+      { name: "Grixis Affinity", points: 9, decks: ["Grixis Affinity"] },
+      { name: "Mono U Terror", points: 9, decks: ["Mono U Terror"] },
+      { name: "Grixis Affinity", points: 6, decks: ["Grixis Affinity"] },
+      { name: "Tron Monsters", points: 6, decks: ["Tron Monsters"] },
+      { name: "BG Cat Food", points: 3, decks: ["BG Cat Food"] },
+      { name: "Mono White Heroic", points: 3, decks: ["Mono White Heroic"] },
+    ],
+    decks: ["Walls Combo", "Jund Wildfire", "Mono Black Sacrifice", "UB Terror", "Bogles", "GlintBlade", "Grixis Affinity", "Mono U Terror", "Tron Monsters", "BG Cat Food", "Mono White Heroic"],
   },
 ];
 
@@ -99,8 +121,11 @@ export const calculateMetagame = (): MetagameStats[] => {
         if (deck === "Mono Red Madness") {
           normalizedDeck = "Madness Burn";
         }
-        if (deck === "Jund Wildfire") {
-          normalizedDeck = "Jund";
+        if (deck === "Affinity") {
+          normalizedDeck = "Grixis Affinity";
+        }
+        if (deck === "Jund") {
+          normalizedDeck = "Jund Wildfire";
         }
 
         if (!deckStats[normalizedDeck]) {
@@ -128,8 +153,8 @@ export const calculateMetagame = (): MetagameStats[] => {
 
 const getColorForDeck = (deckName: string): string => {
   const colorMap: { [key: string]: string } = {
-    "Affinity": "#FF6B6B",
-    "Jund": "#8B4513",
+    "Grixis Affinity": "#FF6B6B",
+    "Jund Wildfire": "#8B4513",
     "RG Monsters": "#FF8C00",
     "Walls Combo": "#4169E1",
     "Jeskai Wildfire": "#FFD700",
@@ -143,6 +168,12 @@ const getColorForDeck = (deckName: string): string => {
     "Spy Walls": "#4B0082",
     "BG Tokens": "#2F4F2F",
     "Jeskai Synthesizer": "#FFD700",
+    "Mono Black Sacrifice": "#1C1C1C",
+    "UB Terror": "#4169E1",
+    "Bogles": "#228B22",
+    "Tron Monsters": "#696969",
+    "BG Cat Food": "#8B4513",
+    "Mono White Heroic": "#FFFACD",
   };
   return colorMap[deckName] || "#666666";
 };
@@ -185,8 +216,11 @@ export const calculatePlayerStats = () => {
         if (deck === "Mono Red Madness") {
           normalizedDeck = "Madness Burn";
         }
-        if (deck === "Jund Wildfire") {
-          normalizedDeck = "Jund";
+        if (deck === "Affinity") {
+          normalizedDeck = "Grixis Affinity";
+        }
+        if (deck === "Jund") {
+          normalizedDeck = "Jund Wildfire";
         }
         playerStats[normalizedName].decks.add(normalizedDeck);
       });
@@ -200,13 +234,25 @@ export const calculatePlayerStats = () => {
     });
   });
 
-  return Object.values(playerStats).sort((a, b) => b.totalPoints - a.totalPoints);
+  return Object.values(playerStats)
+    .sort((a, b) => b.totalPoints - a.totalPoints)
+    .map((player) => ({
+      ...player,
+      decks: Array.from(player.decks),
+    }));
 };
 
-export const getCurrentChampion = () => {
+
+export const getCurrentChampion = (): string => {
+  if (tournaments.length === 0) return "Desconhecido";
   return tournaments[tournaments.length - 1].champion;
 };
 
-export const getCurrentDuck = () => {
+export const getCurrentDuck = (): string => {
+  if (tournaments.length === 0) return "Desconhecido";
   return tournaments[tournaments.length - 1].duck;
+};
+
+export const getChampionshipCount = (playerName: string): number => {
+  return tournaments.filter(t => t.champion === playerName).length;
 };

@@ -31,6 +31,13 @@ const galleryImages: GalleryImage[] = [
     url: "https://d2xsxph8kpxj0f.cloudfront.net/310419663029555026/KkG9CmMFx3FsZmCnqMBDyE/marco_b5d05b45.jpg",
     description: "Torneio de Março - Farinha reina supremo!",
   },
+  {
+    id: 4,
+    month: "Abril",
+    year: 2026,
+    url: "/manus-storage/3_386f3605.jpg",
+    description: "Torneio de Abril - O grupo todo reunido!",
+  },
 ];
 
 export default function GallerySection() {
