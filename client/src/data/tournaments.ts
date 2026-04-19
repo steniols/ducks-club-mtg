@@ -19,7 +19,7 @@ export const tournaments: Tournament[] = [
     id: 1,
     month: "Janeiro",
     year: 2026,
-    champion: "Will",
+    champion: "Robertinho",
     duck: "Geniva",
     players: [
       { name: "Robertinho", points: 12, decks: ["Jund Wildfire"] },
@@ -37,7 +37,7 @@ export const tournaments: Tournament[] = [
     id: 2,
     month: "Fevereiro",
     year: 2026,
-    champion: "Robertinho",
+    champion: "Will",
     duck: "Geniva",
     players: [
       { name: "Will", points: 12, decks: ["Madness Burn"] },
