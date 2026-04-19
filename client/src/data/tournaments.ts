@@ -80,23 +80,24 @@ export const tournaments: Tournament[] = [
     id: 4,
     month: "Abril",
     year: 2026,
-    champion: "Walls Combo",
-    duck: "BG Cat Food",
+    champion: "Moa",
+    duck: "Bruninho",
     players: [
-      { name: "Walls Combo", points: 18, decks: ["Walls Combo"] },
-      { name: "Jund Wildfire", points: 15, decks: ["Jund Wildfire"] },
-      { name: "Mono Black Sacrifice", points: 12, decks: ["Mono Black Sacrifice"] },
-      { name: "UB Terror", points: 12, decks: ["UB Terror"] },
-      { name: "Bogles", points: 12, decks: ["Bogles"] },
-      { name: "GlintBlade", points: 9, decks: ["GlintBlade"] },
-      { name: "Grixis Affinity", points: 9, decks: ["Grixis Affinity"] },
-      { name: "Mono U Terror", points: 9, decks: ["Mono U Terror"] },
-      { name: "Grixis Affinity", points: 6, decks: ["Grixis Affinity"] },
-      { name: "Tron Monsters", points: 6, decks: ["Tron Monsters"] },
-      { name: "BG Cat Food", points: 3, decks: ["BG Cat Food"] },
-      { name: "Mono White Heroic", points: 3, decks: ["Mono White Heroic"] },
+      { name: "Moa", points: 18, decks: ["Walls Combo"] },
+      { name: "Igor", points: 15, decks: ["Jund Wildfire"] },
+      { name: "Steniols", points: 12, decks: ["Mono Black Sacrifice"] },
+      { name: "Xulze", points: 12, decks: ["UB Terror"] },
+      { name: "Will", points: 12, decks: ["Bogles"] },
+      { name: "Passos", points: 9, decks: ["GlintBlade"] },
+      { name: "Adriano", points: 9, decks: ["Grixis Affinity"] },
+      { name: "Renan", points: 9, decks: ["Mono U Terror"] },
+      { name: "Hovelha", points: 6, decks: ["Grixis Affinity"] },
+      { name: "Geniva", points: 6, decks: ["Tron Monsters"] },
+      { name: "Bil", points: 3, decks: ["BG Cat Food"] },
+      { name: "Bruninho", points: 3, decks: ["Mono White Heroic"] },
+      { name: "Vitor", points: 1, decks: ["Affinity"] },
     ],
-    decks: ["Walls Combo", "Jund Wildfire", "Mono Black Sacrifice", "UB Terror", "Bogles", "GlintBlade", "Grixis Affinity", "Mono U Terror", "Tron Monsters", "BG Cat Food", "Mono White Heroic"],
+    decks: ["Walls Combo", "Jund Wildfire", "Mono Black Sacrifice", "UB Terror", "Bogles", "GlintBlade", "Grixis Affinity", "Mono U Terror", "Tron Monsters", "BG Cat Food", "Mono White Heroic", "Affinity"],
   },
 ];
 
@@ -241,7 +242,6 @@ export const calculatePlayerStats = () => {
       decks: Array.from(player.decks),
     }));
 };
-
 
 export const getCurrentChampion = (): string => {
   if (tournaments.length === 0) return "Desconhecido";
