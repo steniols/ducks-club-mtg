@@ -85,7 +85,8 @@ export default function TournamentsSection() {
                           {player.points}
                         </span>
                       </div>
-                    ))}\n                  </div>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Decks */}
