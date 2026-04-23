@@ -13,7 +13,7 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <img 
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029555026/KkG9CmMFx3FsZmCnqMBDyE/ducks-club-logo-transparent_4640ec53.png" 
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029555026/KkG9CmMFx3FsZmCnqMBDyE/ducks-club-logo-transparent_24d53499.png" 
             alt="DUCKS CLUB Logo" 
             className="h-12 w-12"
           />
