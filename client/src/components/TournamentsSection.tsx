@@ -31,21 +31,39 @@ export default function TournamentsSection() {
               <CardContent className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   {/* Champion */}
-                  <div className="bg-accent/10 border-2 border-accent rounded-lg p-6">
-                    <p className="text-sm font-semibold text-muted-foreground mb-2">CAMPEÃO</p>
-                    <p className="text-3xl font-bold text-primary mb-2">
-                      {tournament.champion}
-                    </p>
-                    <p className="text-xs text-muted-foreground">👑 Vencedor do torneio</p>
+                  <div className="bg-accent/10 border-2 border-accent rounded-lg p-6 flex items-center gap-4">
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-muted-foreground mb-2">CAMPEÃO</p>
+                      <p className="text-3xl font-bold text-primary mb-2">
+                        {tournament.champion}
+                      </p>
+                      <p className="text-xs text-muted-foreground">👑 Vencedor do torneio</p>
+                    </div>
+                    {tournament.championPhoto && (
+                      <img
+                        src={tournament.championPhoto}
+                        alt={tournament.champion}
+                        className="w-24 h-24 rounded-full object-cover border-2 border-accent flex-shrink-0"
+                      />
+                    )}
                   </div>
 
                   {/* Duck */}
-                  <div className="bg-destructive/10 border-2 border-destructive rounded-lg p-6">
-                    <p className="text-sm font-semibold text-muted-foreground mb-2">O PATO</p>
-                    <p className="text-3xl font-bold text-destructive mb-2">
-                      {tournament.duck}
-                    </p>
-                    <p className="text-xs text-muted-foreground">🦆 Último colocado</p>
+                  <div className="bg-destructive/10 border-2 border-destructive rounded-lg p-6 flex items-center gap-4">
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-muted-foreground mb-2">O PATO</p>
+                      <p className="text-3xl font-bold text-destructive mb-2">
+                        {tournament.duck}
+                      </p>
+                      <p className="text-xs text-muted-foreground">🦆 Último colocado</p>
+                    </div>
+                    {tournament.duckPhoto && (
+                      <img
+                        src={tournament.duckPhoto}
+                        alt={tournament.duck}
+                        className="w-24 h-24 rounded-full object-cover border-2 border-destructive flex-shrink-0"
+                      />
+                    )}
                   </div>
                 </div>
 

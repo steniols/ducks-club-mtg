@@ -9,7 +9,9 @@ export interface Tournament {
   month: string;
   year: number;
   champion: string;
+  championPhoto?: string;
   duck: string;
+  duckPhoto?: string;
   players: Player[];
   decks: string[];
 }
@@ -20,7 +22,9 @@ export const tournaments: Tournament[] = [
     month: "Janeiro",
     year: 2026,
     champion: "Robertinho",
+    championPhoto: "/manus-storage/robertinho_fa0f58f8.png",
     duck: "Geniva",
+    duckPhoto: "/manus-storage/geniva_c51a47f5.png",
     players: [
       { name: "Robertinho", points: 12, decks: ["Jund Wildfire"] },
       { name: "Xulze", points: 9, decks: ["Grixis Affinity"] },
@@ -38,7 +42,9 @@ export const tournaments: Tournament[] = [
     month: "Fevereiro",
     year: 2026,
     champion: "Will",
+    championPhoto: "/manus-storage/will_9e788021.png",
     duck: "Geniva",
+    duckPhoto: "/manus-storage/geniva_c51a47f5.png",
     players: [
       { name: "Will", points: 12, decks: ["Madness Burn"] },
       { name: "Moa", points: 12, decks: ["Walls Combo"] },
@@ -59,7 +65,9 @@ export const tournaments: Tournament[] = [
     month: "Março",
     year: 2026,
     champion: "Farinha",
+    championPhoto: "/manus-storage/farinha_de127be9.png",
     duck: "Vitor",
+    duckPhoto: "/manus-storage/vitor_ccc9bbc4.png",
     players: [
       { name: "Farinha", points: 15, decks: ["Jeskai Synthesizer"] },
       { name: "Steniols", points: 12, decks: ["White Weenie"] },
@@ -81,7 +89,9 @@ export const tournaments: Tournament[] = [
     month: "Abril",
     year: 2026,
     champion: "Moa",
+    championPhoto: "/manus-storage/moa_7f56529f.png",
     duck: "Bruninho",
+    duckPhoto: "/manus-storage/vitor_ccc9bbc4.png",
     players: [
       { name: "Moa", points: 15, decks: ["Walls Combo"] },
       { name: "Robertinho", points: 12, decks: ["Jund Wildfire"] },
