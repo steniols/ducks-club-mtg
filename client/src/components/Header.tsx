@@ -15,7 +15,7 @@ export default function Header() {
           <img 
             src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029555026/KkG9CmMFx3FsZmCnqMBDyE/pasted_file_IRaJoH_image_98eaa1f9.png" 
             alt="DUCKS CLUB Logo" 
-            className="h-12 w-12"
+            className="h-12 w-12 bg-transparent"
           />
           <div className="flex flex-col">
             <h1 className="text-2xl font-bold text-primary">DUCKS CLUB</h1>
