@@ -91,7 +91,7 @@ export const tournaments: Tournament[] = [
     champion: "Moa",
     championPhoto: "/manus-storage/moa_7f56529f.png",
     duck: "Bruninho",
-    duckPhoto: "/manus-storage/vitor_ccc9bbc4.png",
+    duckPhoto: "/bruninho.png",
     players: [
       { name: "Moa", points: 15, decks: ["Walls Combo"] },
       { name: "Robertinho", points: 12, decks: ["Jund Wildfire"] },
