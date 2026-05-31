@@ -38,6 +38,13 @@ const galleryImages: GalleryImage[] = [
     url: "/manus-storage/3_386f3605.jpg",
     description: "Torneio de Abril - O grupo todo reunido!",
   },
+  {
+    id: 5,
+    month: "Maio",
+    year: 2026,
+    url: "/maio-galeria.jpeg",
+    description: "Torneio de Maio - Robertinho retorna ao topo!",
+  },
 ];
 
 export default function GallerySection() {

@@ -109,6 +109,32 @@ export const tournaments: Tournament[] = [
     ],
     decks: ["Walls Combo", "Jund Wildfire", "Mono Black Sacrifice", "UB Terror", "Bogles", "GlintBlade", "Grixis Affinity", "Mono U Terror", "Tron Monsters", "BG Cat Food", "Mono White Heroic"],
   },
+  {
+    id: 5,
+    month: "Maio",
+    year: 2026,
+    champion: "Robertinho",
+    championPhoto: "/robertinho-maio.jpeg",
+    duck: "Passos",
+    duckPhoto: "/passos-maio.jpeg",
+    players: [
+      { name: "Robertinho", points: 18, decks: ["Jund Wildfire"] },
+      { name: "Xulze", points: 15, decks: ["Rakdos Madness"] },
+      { name: "Moa", points: 12, decks: ["Mono U Faeries"] },
+      { name: "Steniols", points: 12, decks: ["Spy Walls"] },
+      { name: "Eron", points: 9, decks: ["Grixis Affinity"] },
+      { name: "Hovelha", points: 9, decks: ["Tron Monsters"] },
+      { name: "Renan", points: 9, decks: ["BG Gardens"] },
+      { name: "Grabas", points: 9, decks: ["Mono U Faeries"] },
+      { name: "Farinha", points: 6, decks: ["Jeskayy Ephemerate"] },
+      { name: "Will", points: 6, decks: ["Bogles"] },
+      { name: "Igor", points: 6, decks: ["Altar Tron"] },
+      { name: "Rafa", points: 6, decks: ["White Weenie"] },
+      { name: "Geniva", points: 3, decks: ["Boros Tireless Tribe"] },
+      { name: "Passos", points: 3, decks: ["Mono U Crab"] },
+    ],
+    decks: ["Jund Wildfire", "Rakdos Madness", "Mono U Faeries", "Spy Walls", "Grixis Affinity", "Tron Monsters", "BG Gardens", "Jeskayy Ephemerate", "Bogles", "Altar Tron", "White Weenie", "Boros Tireless Tribe", "Mono U Crab"],
+  },
 ];
 
 export interface MetagameStats {
