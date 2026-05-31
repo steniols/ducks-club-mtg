@@ -1,4 +1,6 @@
 import { Link } from "wouter";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const scrollToSection = (id: string) => {
   const element = document.getElementById(id);
@@ -8,6 +10,17 @@ const scrollToSection = (id: string) => {
 };
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleNavClick = (id: string) => {
+    scrollToSection(id);
+    setIsOpen(false);
+  };
+
   return (
     <header className="bg-white shadow-md border-b-4 border-primary sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -23,7 +36,8 @@ export default function Header() {
           </div>
         </Link>
         
-        <nav className="flex gap-6 items-center">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex gap-6 items-center">
           <Link href="/" className="text-foreground hover:text-primary font-medium transition-colors">
             Home
           </Link>
@@ -52,7 +66,59 @@ export default function Header() {
             O PATO
           </button>
         </nav>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={toggleMenu}
+          className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          aria-label="Toggle menu"
+        >
+          {isOpen ? (
+            <X className="w-6 h-6 text-primary" />
+          ) : (
+            <Menu className="w-6 h-6 text-primary" />
+          )}
+        </button>
       </div>
+
+      {/* Mobile Navigation Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-white border-t-2 border-primary">
+          <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
+            <Link 
+              href="/" 
+              className="text-foreground hover:text-primary font-medium transition-colors py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              Home
+            </Link>
+            <button 
+              onClick={() => handleNavClick('ranking')}
+              className="text-left text-foreground hover:text-primary font-medium transition-colors cursor-pointer bg-none border-none p-0 py-2"
+            >
+              Ranking
+            </button>
+            <button 
+              onClick={() => handleNavClick('metagame')}
+              className="text-left text-foreground hover:text-primary font-medium transition-colors cursor-pointer bg-none border-none p-0 py-2"
+            >
+              Metagame
+            </button>
+            <button 
+              onClick={() => handleNavClick('gallery')}
+              className="text-left text-foreground hover:text-primary font-medium transition-colors cursor-pointer bg-none border-none p-0 py-2"
+            >
+              Galeria
+            </button>
+            <button 
+              onClick={() => handleNavClick('duck')}
+              className="text-left text-destructive hover:text-red-700 font-bold transition-colors cursor-pointer bg-none border-none p-0 py-2"
+            >
+              O PATO
+            </button>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
