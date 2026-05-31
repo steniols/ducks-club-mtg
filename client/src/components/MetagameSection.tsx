@@ -40,7 +40,7 @@ export default function MetagameSection() {
         </div>
 
         {/* Distribuição de Decks com Percentual */}
-        <Card className="shadow-lg border-2 border-accent mb-8">
+        <Card className="shadow-lg border-2 border-accent mb-8 hidden md:block">
           <CardHeader>
             <CardTitle className="text-primary">Distribuição de Decks</CardTitle>
           </CardHeader>
