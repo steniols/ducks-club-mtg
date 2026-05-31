@@ -34,7 +34,7 @@ export default function TournamentsSection() {
                   <div className="bg-accent/10 border-2 border-accent rounded-lg p-6 flex items-center gap-4">
                     <div className="flex-1">
                       <p className="text-sm font-semibold text-muted-foreground mb-2">CAMPEÃO</p>
-                      <p className="text-3xl font-bold text-primary mb-2">
+                      <p className="text-2xl font-bold text-primary mb-2">
                         {tournament.champion}
                       </p>
                       <p className="text-xs text-muted-foreground">👑 Vencedor do torneio</p>
@@ -52,7 +52,7 @@ export default function TournamentsSection() {
                   <div className="bg-destructive/10 border-2 border-destructive rounded-lg p-6 flex items-center gap-4">
                     <div className="flex-1">
                       <p className="text-sm font-semibold text-muted-foreground mb-2">O PATO</p>
-                      <p className="text-3xl font-bold text-destructive mb-2">
+                      <p className="text-2xl font-bold text-destructive mb-2">
                         {tournament.duck}
                       </p>
                       <p className="text-xs text-muted-foreground">🦆 Último colocado</p>
