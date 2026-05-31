@@ -26,9 +26,9 @@ export default function ChampionSection() {
           
           <div className="bg-white rounded-lg shadow-2xl p-8 border-4 border-primary">
             <img 
-              src="/manus-storage/1_c8e40eb7.jpg"
+              src="/robertinho-maio.jpeg"
               alt={champion}
-              className="w-64 h-80 rounded-lg object-cover mx-auto mb-6 shadow-lg border-2 border-primary"
+              className="w-64 h-64 rounded-lg object-cover mx-auto mb-6 shadow-lg border-2 border-primary"
             />
             <p className="text-6xl md:text-7xl font-bold text-primary mb-4 drop-shadow-lg">
               {champion}
