@@ -30,7 +30,7 @@ export default function ChampionSection() {
               alt={champion}
               className="w-64 h-64 rounded-lg object-cover mx-auto mb-6 shadow-lg border-2 border-primary"
             />
-            <p className="text-6xl md:text-7xl font-bold text-primary mb-4 drop-shadow-lg">
+            <p className="text-4xl md:text-7xl font-bold text-primary mb-4 drop-shadow-lg">
               {champion}
             </p>
             <p className="text-lg text-muted-foreground mb-4">
