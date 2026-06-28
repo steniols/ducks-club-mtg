@@ -26,7 +26,7 @@ export default function ChampionSection() {
           
           <div className="bg-white rounded-lg shadow-2xl p-8 border-4 border-primary">
             <img 
-              src="/robertinho-maio.jpeg"
+              src={lastTournament.championPhoto || "/robertinho-maio.jpeg"}
               alt={champion}
               className="w-64 h-64 rounded-lg object-cover mx-auto mb-6 shadow-lg border-2 border-primary"
             />
