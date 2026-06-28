@@ -44,7 +44,7 @@ export default function DuckSection() {
                 {/* Foto */}
                 <div className="flex items-center justify-center bg-destructive/5 p-8">
                   <img
-                    src="/passos-maio.jpeg"
+                    src={lastTournament.duckPhoto || "/passos-maio.jpeg"}
                     alt={currentDuck}
                     className="w-full h-full object-cover rounded-lg shadow-lg"
                   />
