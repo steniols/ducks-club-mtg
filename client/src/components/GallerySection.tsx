@@ -45,6 +45,13 @@ const galleryImages: GalleryImage[] = [
     url: "/maio-galeria.jpeg",
     description: "Torneio de Maio - Robertinho retorna ao topo!",
   },
+  {
+    id: 6,
+    month: "Junho",
+    year: 2026,
+    url: "/manus-storage/foto-galeria_62f9a068.jpeg",
+    description: "Torneio de Junho - Robertinho mantém a coroa!",
+  },
 ];
 
 export default function GallerySection() {

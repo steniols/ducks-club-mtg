@@ -135,6 +135,28 @@ export const tournaments: Tournament[] = [
     ],
     decks: ["Jund Wildfire", "Rakdos Madness", "Mono U Faeries", "Spy Walls", "Grixis Affinity", "Tron Monsters", "BG Gardens", "Jeskayy Ephemerate", "Bogles", "Altar Tron", "White Weenie", "Boros Tireless Tribe", "Mono U Crab"],
   },
+  {
+    id: 6,
+    month: "Junho",
+    year: 2026,
+    champion: "Robertinho",
+    championPhoto: "/robertinho-maio.jpeg",
+    duck: "Vitor",
+    duckPhoto: "/manus-storage/vitor-pato-do-mes_22698ff7.png",
+    players: [
+      { name: "Robertinho", points: 15, decks: ["Grixis Affinity"] },
+      { name: "Renan", points: 12, decks: ["UR Skred"] },
+      { name: "Adriano", points: 9, decks: ["Grixis Affinity"] },
+      { name: "Passos", points: 9, decks: ["GlintBlade"] },
+      { name: "Hovelha", points: 9, decks: ["Fractius"] },
+      { name: "Farinha", points: 9, decks: ["Boros Tribe"] },
+      { name: "Will", points: 6, decks: ["Spy Walls"] },
+      { name: "Eron", points: 6, decks: ["Jund Bow"] },
+      { name: "Nona", points: 3, decks: ["UB Fadas"] },
+      { name: "Vitor", points: 3, decks: ["BG Gardens"] },
+    ],
+    decks: ["Grixis Affinity", "UR Skred", "GlintBlade", "Fractius", "Boros Tribe", "Spy Walls", "Jund Bow", "UB Fadas", "BG Gardens"],
+  },
 ];
 
 export interface MetagameStats {
@@ -218,6 +240,11 @@ const getColorForDeck = (deckName: string): string => {
     "Altar Tron": "#696969",
     "Boros Tireless Tribe": "#FF8C00",
     "Mono U Crab": "#4169E1",
+    "UR Skred": "#FF6347",
+    "Fractius": "#228B22",
+    "Boros Tribe": "#FF8C00",
+    "Jund Bow": "#8B4513",
+    "UB Fadas": "#4169E1",
   };
   return colorMap[deckName] || "#666666";
 };
