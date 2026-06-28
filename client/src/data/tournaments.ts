@@ -140,7 +140,7 @@ export const tournaments: Tournament[] = [
     month: "Junho",
     year: 2026,
     champion: "Robertinho",
-    championPhoto: "/manus-storage/campeao_101db61f.jpg",
+    championPhoto: "/manus-storage/campeao2_a83ec225.jpg",
     duck: "Vitor",
     duckPhoto: "/manus-storage/vitor-pato-do-mes_22698ff7.png",
     players: [
