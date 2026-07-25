@@ -157,6 +157,33 @@ export const tournaments: Tournament[] = [
     ],
     decks: ["Grixis Affinity", "UR Skred", "GlintBlade", "Fractius", "Boros Tribe", "Spy Walls", "Jund Bow", "UB Fadas", "BG Gardens"],
   },
+  {
+    id: 7,
+    month: "Julho",
+    year: 2026,
+    champion: "Xulze",
+    championPhoto: "/manus-storage/Xulze-Campeao-do-mes_ee720c84.jpg",
+    duck: "Bruninho",
+    duckPhoto: "/manus-storage/Bruninho-pato-do-mes_4ac73262.jpg",
+    players: [
+      { name: "Xulze", points: 15, decks: ["Grixis Affinity"] },
+      { name: "Hovelha", points: 12, decks: ["Tron Monsters"] },
+      { name: "Grabas", points: 9, decks: ["Bogles"] },
+      { name: "Eron", points: 9, decks: ["Simic Fog"] },
+      { name: "Moa", points: 9, decks: ["Walls Combo"] },
+      { name: "Will", points: 6, decks: ["Mono Red Madness"] },
+      { name: "Passos", points: 6, decks: ["UB Affinity"] },
+      { name: "Vitor", points: 6, decks: ["White Weenie"] },
+      { name: "Steniols", points: 3, decks: ["Mono Red Rally"] },
+      { name: "Robertinho", points: 3, decks: ["Mono Black Devotion"] },
+      { name: "Adriano", points: 3, decks: ["Jund Wildfire"] },
+      { name: "Farinha", points: 3, decks: ["Boros Bully"] },
+      { name: "Renan", points: 3, decks: ["Jund Wildfire"] },
+      { name: "Geniva", points: 3, decks: ["BW Blade"] },
+      { name: "Bruninho", points: 0, decks: ["Mono White Heroic"] },
+    ],
+    decks: ["Grixis Affinity", "Tron Monsters", "Bogles", "Simic Fog", "Walls Combo", "Mono Red Madness", "UB Affinity", "White Weenie", "Mono Red Rally", "Mono Black Devotion", "Jund Wildfire", "Boros Bully", "BW Blade", "Mono White Heroic"],
+  },
 ];
 
 export interface MetagameStats {
@@ -245,6 +272,13 @@ const getColorForDeck = (deckName: string): string => {
     "Boros Tribe": "#FF8C00",
     "Jund Bow": "#8B4513",
     "UB Fadas": "#4169E1",
+    "Simic Fog": "#20B2AA",
+    "Mono Red Madness": "#FF4500",
+    "UB Affinity": "#4169E1",
+    "Mono Red Rally": "#FF4500",
+    "Mono Black Devotion": "#1C1C1C",
+    "Boros Bully": "#FF8C00",
+    "BW Blade": "#808080",
   };
   return colorMap[deckName] || "#666666";
 };

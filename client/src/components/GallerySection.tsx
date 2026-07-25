@@ -52,6 +52,13 @@ const galleryImages: GalleryImage[] = [
     url: "/manus-storage/foto-galeria_62f9a068.jpeg",
     description: "Torneio de Junho - Robertinho mantém a coroa!",
   },
+  {
+    id: 7,
+    month: "Julho",
+    year: 2026,
+    url: "/manus-storage/Foto-galeria_6624c2ff.jpg",
+    description: "Torneio de Julho - Xulze conquista o título!",
+  },
 ];
 
 export default function GallerySection() {
