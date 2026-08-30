@@ -59,6 +59,13 @@ const galleryImages: GalleryImage[] = [
     url: "/manus-storage/Foto-galeria_6624c2ff.jpg",
     description: "Torneio de Julho - Xulze conquista o título!",
   },
+  {
+    id: 8,
+    month: "Agosto",
+    year: 2026,
+    url: "/manus-storage/agosto-2026-galeria_6ae7a301.jpeg",
+    description: "Torneio de Agosto - Robertinho vence mais uma!",
+  },
 ];
 
 export default function GallerySection() {

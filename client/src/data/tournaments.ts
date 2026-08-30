@@ -184,6 +184,26 @@ export const tournaments: Tournament[] = [
     ],
     decks: ["Grixis Affinity", "Tron Monsters", "Bogles", "Simic Fog", "Walls Combo", "Mono Red Madness", "UB Affinity", "White Weenie", "Mono Red Rally", "Mono Black Devotion", "Jund Wildfire", "Boros Bully", "BW Blade", "Mono White Heroic"],
   },
+  {
+    id: 8,
+    month: "Agosto",
+    year: 2026,
+    champion: "Robertinho",
+    championPhoto: "/manus-storage/agosto-2026-campeao-robertinho_74aca262.png",
+    duck: "Nona",
+    duckPhoto: "/manus-storage/agosto-2026-pato-nona_2ea08289.png",
+    players: [
+      { name: "Robertinho", points: 12, decks: ["UB Terror"] },
+      { name: "Passos", points: 10, decks: ["Esper Affinity"] },
+      { name: "Moa", points: 9, decks: ["Walls Combo"] },
+      { name: "Hovelha", points: 8, decks: ["Peticionarios Mill"] },
+      { name: "Bruno", points: 7, decks: ["Naya Fractius"] },
+      { name: "Igor", points: 6, decks: ["BW Blade"] },
+      { name: "Geniva", points: 4, decks: ["Jund Wildfire"] },
+      { name: "Nona", points: 1, decks: ["UW Familiars"] },
+    ],
+    decks: ["UB Terror", "Esper Affinity", "Walls Combo", "Peticionarios Mill", "Naya Fractius", "BW Blade", "Jund Wildfire", "UW Familiars"],
+  },
 ];
 
 export interface MetagameStats {
@@ -279,6 +299,10 @@ const getColorForDeck = (deckName: string): string => {
     "Mono Black Devotion": "#1C1C1C",
     "Boros Bully": "#FF8C00",
     "BW Blade": "#808080",
+    "Esper Affinity": "#708090",
+    "Peticionarios Mill": "#4682B4",
+    "Naya Fractius": "#DAA520",
+    "UW Familiars": "#6495ED",
   };
   return colorMap[deckName] || "#666666";
 };
