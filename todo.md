@@ -1,30 +1,11 @@
-# Atualização do torneio de agosto de 2026
+# Ajuste do gráfico de distribuição de decks
 
-- [x] Extrair e conferir o conteúdo do arquivo ZIP de agosto.
-- [x] Identificar ranking, pontuações, decks, campeão, pato e imagens fornecidas.
+- [x] Revisar o componente e a fonte de dados do metagame.
+- [x] Agrupar no gráfico os decks abaixo de 1,5% como “Outros”.
+- [x] Manter a tabela detalhada sem agrupamento.
+- [x] Validar cálculo, renderização desktop/mobile e compilação.
+- [x] Salvar checkpoint da alteração.
 
-## Dados confirmados de agosto
+## Validação visual do agrupamento
 
-| Posição | Jogador | Pontos | Deck |
-|---:|---|---:|---|
-| 1 | Robertinho | 12 | UB Terror |
-| 2 | Passos | 10 | Esper Affinity |
-| 3 | Moa | 9 | Walls Combo |
-| 4 | Hovelha | 8 | Peticionarios Mill |
-| 5 | Bruno | 7 | Naya Fractius |
-| 6 | Igor | 6 | BW Blade |
-| 7 | Geniva | 4 | Jund Wildfire |
-| 8 | Nona | 1 | UW Familiars |
-
-Campeão: Robertinho. Pato: Nona. Arquivos visuais: foto do pato, foto do campeão e foto para a galeria.
-- [x] Fazer upload das imagens necessárias para o armazenamento do projeto.
-- [x] Adicionar o torneio de agosto à fonte de dados.
-- [x] Atualizar a galeria com a foto de agosto, se houver.
-- [x] Revisar cores e normalizações dos novos decks no metagame.
-- [x] Validar compilação, ranking, metagame e visualização responsiva.
-- [x] Salvar checkpoint da atualização concluída.
-
-## Concluído
-- Compilação de produção e verificação TypeScript concluídas sem erros.
-- Ranking de agosto conferido: Robertinho 12, Passos 10, Moa 9, Hovelha 8, Bruno 7, Igor 6, Geniva 4 e Nona 1.
-- Visualização desktop e mobile conferidas após a atualização.
+A captura desktop confirmou a renderização da página após a alteração. O gráfico de distribuição usa agora a série agrupada, enquanto a tabela de detalhes continua baseada em `metagame` completo. A compilação e a verificação TypeScript foram concluídas sem erros; o aviso restante é apenas sobre tamanho de bundle do Vite.

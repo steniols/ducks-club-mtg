@@ -6,8 +6,28 @@ export default function MetagameSection() {
   const metagame = calculateMetagame();
   const topDecks = metagame.slice(0, 8);
 
-  // Calcular total de aparições para percentuais
+  // Calcular total de aparições e agrupar decks com menos de 1,5% no gráfico de pizza.
   const totalAppearances = metagame.reduce((sum, d) => sum + d.appearances, 0);
+  const groupedMetagame = (() => {
+    const visibleDecks = metagame.filter(
+      (deck) => (deck.appearances / totalAppearances) * 100 >= 1.5
+    );
+    const otherAppearances = metagame
+      .filter((deck) => (deck.appearances / totalAppearances) * 100 < 1.5)
+      .reduce((sum, deck) => sum + deck.appearances, 0);
+
+    if (otherAppearances === 0) return visibleDecks;
+
+    return [
+      ...visibleDecks,
+      {
+        deckName: "Outros",
+        appearances: otherAppearances,
+        winRate: 0,
+        color: "#94A3B8",
+      },
+    ];
+  })();
 
   return (
     <section id="metagame" className="py-20 bg-slate-50">
@@ -48,7 +68,7 @@ export default function MetagameSection() {
             <ResponsiveContainer width="100%" height={550}>
               <PieChart>
                 <Pie
-                  data={metagame}
+                  data={groupedMetagame}
                   dataKey="appearances"
                   nameKey="deckName"
                   cx="50%"
@@ -59,7 +79,7 @@ export default function MetagameSection() {
                     return `${deckName}: ${percentage}%`;
                   }}
                 >
-                  {metagame.map((entry, index) => (
+                  {groupedMetagame.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
