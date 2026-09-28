@@ -124,8 +124,8 @@ export default function DuckSection() {
                           Pato: {tournament.duck}
                         </p>
                       </div>
-                      <span className="text-2xl">
-                        {tournament.duck === currentDuck ? "🦆" : "🏆"}
+                      <span className="text-2xl" aria-label="Pato">
+                        🦆
                       </span>
                     </div>
                   </div>
