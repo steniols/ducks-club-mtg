@@ -343,10 +343,17 @@ export const calculatePlayerStats = () => {
     };
   } = {};
 
+  const normalizePlayerName = (name: string): string => {
+    // O nome apareceu como “Steniols” nos torneios anteriores e como “Stenio”
+    // em setembro; ambos representam o mesmo jogador.
+    if (name === "Steniols" || name === "Stenio") return "Stenio";
+    return name;
+  };
+
   tournaments.forEach((tournament) => {
     tournament.players.forEach((player) => {
       // Normalizar nome do jogador
-      const normalizedName = player.name;
+      const normalizedName = normalizePlayerName(player.name);
 
       if (!playerStats[normalizedName]) {
         playerStats[normalizedName] = {
@@ -378,10 +385,10 @@ export const calculatePlayerStats = () => {
         playerStats[normalizedName].decks.add(normalizedDeck);
       });
 
-      if (player.name === tournament.champion) {
+      if (normalizedName === normalizePlayerName(tournament.champion)) {
         playerStats[normalizedName].championships += 1;
       }
-      if (player.name === tournament.duck) {
+      if (normalizedName === normalizePlayerName(tournament.duck)) {
         playerStats[normalizedName].duckCount += 1;
       }
     });
