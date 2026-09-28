@@ -204,6 +204,28 @@ export const tournaments: Tournament[] = [
     ],
     decks: ["UB Terror", "Esper Affinity", "Walls Combo", "Peticionarios Mill", "Naya Fractius", "BW Blade", "Jund Wildfire", "UW Familiars"],
   },
+  {
+    id: 9,
+    month: "Setembro",
+    year: 2026,
+    champion: "Will",
+    championPhoto: "/manus-storage/will-campeao_0d0b71c3.jpeg",
+    duck: "Grabas",
+    duckPhoto: "/manus-storage/grabas-pato-do-mes_49fd392d.jpeg",
+    players: [
+      { name: "Will", points: 12, decks: ["Mono Red Madness"] },
+      { name: "Stenio", points: 12, decks: ["Mono Red Rally"] },
+      { name: "Indio", points: 12, decks: ["Deck não informado"] },
+      { name: "Eron", points: 9, decks: ["Rakdos Madness"] },
+      { name: "Passos", points: 6, decks: ["Mono Red Rally"] },
+      { name: "Robertinho", points: 6, decks: ["UW Familiars"] },
+      { name: "Moa", points: 6, decks: ["Spy Walls"] },
+      { name: "Farinha", points: 6, decks: ["Boros Moxite"] },
+      { name: "Hovelha", points: 3, decks: ["Tron Monsters"] },
+      { name: "Grabas", points: 3, decks: ["Altar Tron"] },
+    ],
+    decks: ["Mono Red Madness", "Mono Red Rally", "Deck não informado", "Rakdos Madness", "UW Familiars", "Spy Walls", "Boros Moxite", "Tron Monsters", "Altar Tron"],
+  },
 ];
 
 export interface MetagameStats {
@@ -303,6 +325,8 @@ const getColorForDeck = (deckName: string): string => {
     "Peticionarios Mill": "#4682B4",
     "Naya Fractius": "#DAA520",
     "UW Familiars": "#6495ED",
+    "Deck não informado": "#A9A9A9",
+    "Boros Moxite": "#FF8C00",
   };
   return colorMap[deckName] || "#666666";
 };

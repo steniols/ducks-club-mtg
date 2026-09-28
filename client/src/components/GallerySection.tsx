@@ -66,6 +66,13 @@ const galleryImages: GalleryImage[] = [
     url: "/manus-storage/agosto-2026-galeria_6ae7a301.jpeg",
     description: "Torneio de Agosto - Robertinho vence mais uma!",
   },
+  {
+    id: 9,
+    month: "Setembro",
+    year: 2026,
+    url: "/manus-storage/foto-galeria_be9c89fe.jpeg",
+    description: "Torneio de Setembro - Will levanta o troféu!",
+  },
 ];
 
 export default function GallerySection() {
