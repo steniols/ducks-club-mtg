@@ -29,6 +29,26 @@ export default function MetagameSection() {
     ];
   })();
 
+  // Na tabela, consolidar apenas os decks usados uma vez para manter os detalhes legíveis.
+  const detailedMetagame = (() => {
+    const recurringDecks = metagame.filter((deck) => deck.appearances > 1);
+    const oneUseAppearances = metagame
+      .filter((deck) => deck.appearances === 1)
+      .reduce((sum, deck) => sum + deck.appearances, 0);
+
+    if (oneUseAppearances === 0) return recurringDecks;
+
+    return [
+      ...recurringDecks,
+      {
+        deckName: "Outros",
+        appearances: oneUseAppearances,
+        winRate: 0,
+        color: "#94A3B8",
+      },
+    ];
+  })();
+
   return (
     <section id="metagame" className="py-20 bg-slate-50">
       <div className="container mx-auto px-4">
@@ -110,7 +130,7 @@ export default function MetagameSection() {
                   </tr>
                 </thead>
                 <tbody>
-                  {metagame.map((deck, index) => {
+                  {detailedMetagame.map((deck, index) => {
                     const percentage = ((deck.appearances / totalAppearances) * 100).toFixed(1);
                     return (
                       <tr key={deck.deckName} className={index % 2 === 0 ? "bg-white" : "bg-slate-50"}>
