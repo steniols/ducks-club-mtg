@@ -30,12 +30,14 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <HeroSection />
-        <ChampionSection />
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-start">
+          <ChampionSection />
+          <DuckSection />
+        </div>
         <RankingSection />
         <MetagameSection />
         <GallerySection />
         <TournamentsSection />
-        <DuckSection />
       </main>
       <Footer />
     </div>
