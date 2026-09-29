@@ -12,7 +12,7 @@ export default function MetagameSection() {
     return {
       ...deck,
       percentage,
-      labelText: `${deck.appearances} ${deck.appearances === 1 ? "aparição" : "aparições"} • ${percentage}%`,
+      labelText: `${percentage}%`,
     };
   });
 
@@ -55,7 +55,7 @@ export default function MetagameSection() {
                 <BarChart
                   data={distributionData}
                   layout="vertical"
-                  margin={{ top: 8, right: 150, left: 8, bottom: 8 }}
+                  margin={{ top: 8, right: 58, left: 8, bottom: 8 }}
                   barCategoryGap="28%"
                 >
                   <CartesianGrid horizontal={false} stroke="#475569" strokeDasharray="2 4" />
@@ -70,7 +70,13 @@ export default function MetagameSection() {
                   />
                   <Tooltip
                     cursor={{ fill: "rgba(148, 163, 184, 0.12)" }}
-                    formatter={(value: number) => [`${value.toFixed(1)}%`, "Participação"]}
+                    formatter={(value: number, _name: string, item: { payload?: { appearances: number } }) => {
+                      const appearances = item?.payload?.appearances ?? 0;
+                      return [
+                        `${value.toFixed(1)}% · ${appearances} ${appearances === 1 ? "aparição" : "aparições"}`,
+                        "Participação",
+                      ];
+                    }}
                     labelStyle={{ color: "#0F172A", fontWeight: 700 }}
                   />
                   <Bar dataKey="percentage" radius={[0, 3, 3, 0]}>
