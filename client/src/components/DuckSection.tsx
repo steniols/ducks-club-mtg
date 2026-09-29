@@ -121,7 +121,7 @@ export default function DuckSection() {
           <Card className="border-2 border-destructive bg-white">
             <CardContent className="p-6">
               <div className="text-center mb-6">
-                <h4 className="text-2xl font-bold text-destructive">Cards Comemorativos dos Patos</h4>
+                <h4 className="text-2xl font-bold text-destructive">Históricos dos Patos</h4>
                 <p className="text-sm text-muted-foreground mt-2">
                   Clique em um card para ampliar a homenagem ao último colocado do mês.
                 </p>
@@ -194,7 +194,7 @@ export default function DuckSection() {
               className="max-h-[82vh] w-auto rounded-xl object-contain shadow-2xl"
             />
             <p className="mt-3 text-center text-lg font-bold text-white">
-              {selectedCard.month} de {selectedCard.year} — Pato {selectedCard.name}
+              {selectedCard.month} de {selectedCard.year} — Pato {selectedCard.name} (Arte feito por Robertinho)
             </p>
           </div>
         </div>
