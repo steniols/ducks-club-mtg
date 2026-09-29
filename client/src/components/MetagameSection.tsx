@@ -1,12 +1,12 @@
 import { calculateMetagame } from "@/data/tournaments";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, LabelList } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function MetagameSection() {
   const metagame = calculateMetagame();
   const topDecks = metagame.slice(0, 8);
 
-  // Calcular total de aparições e agrupar decks com menos de 1,5% no gráfico de pizza.
+  // Calcular total de aparições e agrupar decks com menos de 1,5% na distribuição.
   const totalAppearances = metagame.reduce((sum, d) => sum + d.appearances, 0);
   const groupedMetagame = (() => {
     const visibleDecks = metagame.filter(
@@ -28,6 +28,11 @@ export default function MetagameSection() {
       },
     ];
   })();
+
+  const distributionData = groupedMetagame.map((deck) => ({
+    ...deck,
+    percentage: Number(((deck.appearances / totalAppearances) * 100).toFixed(1)),
+  }));
 
   // Na tabela, consolidar apenas os decks usados uma vez para manter os detalhes legíveis.
   const detailedMetagame = (() => {
@@ -80,37 +85,53 @@ export default function MetagameSection() {
         </div>
 
         {/* Distribuição de Decks com Percentual */}
-        <Card className="shadow-lg border-2 border-accent mb-8 hidden md:block">
+        <Card className="shadow-lg border-2 border-accent mb-8">
           <CardHeader>
             <CardTitle className="text-primary">Distribuição de Decks</CardTitle>
           </CardHeader>
           <CardContent>
-            <ResponsiveContainer width="100%" height={550}>
-              <PieChart>
-                <Pie
-                  data={groupedMetagame}
-                  dataKey="appearances"
-                  nameKey="deckName"
-                  cx="50%"
-                  cy="50%"
-                  outerRadius={typeof window !== 'undefined' && window.innerWidth < 768 ? 120 : 180}
-                  label={({ deckName, appearances }) => {
-                    const percentage = ((appearances / totalAppearances) * 100).toFixed(1);
-                    return `${deckName}: ${percentage}%`;
-                  }}
+            <div className="rounded-lg bg-slate-800 p-3 sm:p-6">
+              <ResponsiveContainer width="100%" height={Math.max(320, distributionData.length * 44 + 40)}>
+                <BarChart
+                  data={distributionData}
+                  layout="vertical"
+                  margin={{ top: 8, right: 48, left: 8, bottom: 8 }}
+                  barCategoryGap="28%"
                 >
-                  {groupedMetagame.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Tooltip 
-                  formatter={(value: any) => {
-                    const percentage = ((Number(value) / totalAppearances) * 100).toFixed(1);
-                    return `${percentage}%`;
-                  }}
-                />
-              </PieChart>
-            </ResponsiveContainer>
+                  <CartesianGrid horizontal={false} stroke="#475569" strokeDasharray="2 4" />
+                  <XAxis type="number" domain={[0, "dataMax"]} hide />
+                  <YAxis
+                    type="category"
+                    dataKey="deckName"
+                    width={128}
+                    tick={{ fill: "#F8FAFC", fontSize: 12, fontWeight: 700 }}
+                    axisLine={false}
+                    tickLine={false}
+                  />
+                  <Tooltip
+                    cursor={{ fill: "rgba(148, 163, 184, 0.12)" }}
+                    formatter={(value: number) => [`${value.toFixed(1)}%`, "Participação"]}
+                    labelStyle={{ color: "#0F172A", fontWeight: 700 }}
+                  />
+                  <Bar dataKey="percentage" radius={[0, 3, 3, 0]}>
+                    <LabelList
+                      dataKey="percentage"
+                      position="right"
+                      formatter={(value: number) => `${value.toFixed(1)}%`}
+                      fill="#F8FAFC"
+                      fontSize={12}
+                      fontWeight={700}
+                    />
+                    {distributionData.map((entry, index) => (
+                      <Cell
+                        key={`distribution-cell-${index}`}
+                        fill={entry.deckName === "Outros" ? "#94A3B8" : "#F59E0B"}
+                      />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
           </CardContent>
         </Card>
 
