@@ -215,7 +215,7 @@ export const tournaments: Tournament[] = [
     players: [
       { name: "Will", points: 12, decks: ["Mono Red Madness"] },
       { name: "Stenio", points: 12, decks: ["Mono Red Rally"] },
-      { name: "Indio", points: 12, decks: ["Deck não informado"] },
+      { name: "Vitor", points: 12, decks: ["Deck não informado"] },
       { name: "Eron", points: 9, decks: ["Rakdos Madness"] },
       { name: "Passos", points: 6, decks: ["Mono Red Rally"] },
       { name: "Robertinho", points: 6, decks: ["UW Familiars"] },
