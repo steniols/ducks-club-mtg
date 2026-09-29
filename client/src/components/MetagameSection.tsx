@@ -5,55 +5,16 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 export default function MetagameSection() {
   const metagame = calculateMetagame();
   const topDecks = metagame.slice(0, 8);
+  const totalAppearances = metagame.reduce((sum, deck) => sum + deck.appearances, 0);
 
-  // Calcular total de aparições e agrupar decks com menos de 1,5% na distribuição.
-  const totalAppearances = metagame.reduce((sum, d) => sum + d.appearances, 0);
-  const groupedMetagame = (() => {
-    const visibleDecks = metagame.filter(
-      (deck) => (deck.appearances / totalAppearances) * 100 >= 1.5
-    );
-    const otherAppearances = metagame
-      .filter((deck) => (deck.appearances / totalAppearances) * 100 < 1.5)
-      .reduce((sum, deck) => sum + deck.appearances, 0);
-
-    if (otherAppearances === 0) return visibleDecks;
-
-    return [
-      ...visibleDecks,
-      {
-        deckName: "Outros",
-        appearances: otherAppearances,
-        winRate: 0,
-        color: "#94A3B8",
-      },
-    ];
-  })();
-
-  // Na visualização em barras, exibir novamente todos os decks individualmente.
-  const distributionData = metagame.map((deck) => ({
-    ...deck,
-    percentage: Number(((deck.appearances / totalAppearances) * 100).toFixed(1)),
-  }));
-
-  // Na tabela, consolidar apenas os decks usados uma vez para manter os detalhes legíveis.
-  const detailedMetagame = (() => {
-    const recurringDecks = metagame.filter((deck) => deck.appearances > 1);
-    const oneUseAppearances = metagame
-      .filter((deck) => deck.appearances === 1)
-      .reduce((sum, deck) => sum + deck.appearances, 0);
-
-    if (oneUseAppearances === 0) return recurringDecks;
-
-    return [
-      ...recurringDecks,
-      {
-        deckName: "Outros",
-        appearances: oneUseAppearances,
-        winRate: 0,
-        color: "#94A3B8",
-      },
-    ];
-  })();
+  const distributionData = metagame.map((deck) => {
+    const percentage = Number(((deck.appearances / totalAppearances) * 100).toFixed(1));
+    return {
+      ...deck,
+      percentage,
+      labelText: `${deck.appearances} ${deck.appearances === 1 ? "aparição" : "aparições"} • ${percentage}%`,
+    };
+  });
 
   return (
     <section id="metagame" className="py-20 bg-slate-50">
@@ -66,7 +27,6 @@ export default function MetagameSection() {
         </p>
 
         <div className="grid grid-cols-1 gap-8 mb-12">
-          {/* Aparições por Deck */}
           <Card className="shadow-lg border-2 border-primary">
             <CardHeader>
               <CardTitle className="text-primary">Decks Mais Populares</CardTitle>
@@ -85,7 +45,6 @@ export default function MetagameSection() {
           </Card>
         </div>
 
-        {/* Distribuição de Decks com Percentual */}
         <Card className="shadow-lg border-2 border-accent mb-8">
           <CardHeader>
             <CardTitle className="text-primary">Distribuição de Decks</CardTitle>
@@ -96,7 +55,7 @@ export default function MetagameSection() {
                 <BarChart
                   data={distributionData}
                   layout="vertical"
-                  margin={{ top: 8, right: 48, left: 8, bottom: 8 }}
+                  margin={{ top: 8, right: 150, left: 8, bottom: 8 }}
                   barCategoryGap="28%"
                 >
                   <CartesianGrid horizontal={false} stroke="#475569" strokeDasharray="2 4" />
@@ -116,9 +75,8 @@ export default function MetagameSection() {
                   />
                   <Bar dataKey="percentage" radius={[0, 3, 3, 0]}>
                     <LabelList
-                      dataKey="percentage"
+                      dataKey="labelText"
                       position="right"
-                      formatter={(value: number) => `${value.toFixed(1)}%`}
                       fill="#F8FAFC"
                       fontSize={12}
                       fontWeight={700}
@@ -126,50 +84,12 @@ export default function MetagameSection() {
                     {distributionData.map((entry, index) => (
                       <Cell
                         key={`distribution-cell-${index}`}
-                        fill={entry.deckName === "Outros" ? "#94A3B8" : "#F59E0B"}
+                        fill={entry.appearances === 1 ? "#94A3B8" : "#F59E0B"}
                       />
                     ))}
                   </Bar>
                 </BarChart>
               </ResponsiveContainer>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Tabela de Detalhes */}
-        <Card className="shadow-lg">
-          <CardHeader>
-            <CardTitle className="text-primary">Detalhes Completos</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b-2 border-primary">
-                    <th className="text-left py-3 px-4 font-bold text-primary">Deck</th>
-                    <th className="text-center py-3 px-4 font-bold text-primary">Aparições</th>
-                    <th className="text-center py-3 px-4 font-bold text-primary">Percentual</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {detailedMetagame.map((deck, index) => {
-                    const percentage = ((deck.appearances / totalAppearances) * 100).toFixed(1);
-                    return (
-                      <tr key={deck.deckName} className={index % 2 === 0 ? "bg-white" : "bg-slate-50"}>
-                        <td className="py-3 px-4 font-semibold text-foreground">{deck.deckName}</td>
-                        <td className="text-center py-3 px-4">
-                          <span className="bg-primary text-white px-3 py-1 rounded-full font-bold">
-                            {deck.appearances}
-                          </span>
-                        </td>
-                        <td className="text-center py-3 px-4">
-                          <span className="text-secondary font-bold">{percentage}%</span>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
             </div>
           </CardContent>
         </Card>
