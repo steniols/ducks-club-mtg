@@ -194,7 +194,7 @@ export default function DuckSection() {
               className="max-h-[82vh] w-auto rounded-xl object-contain shadow-2xl"
             />
             <p className="mt-3 text-center text-lg font-bold text-white">
-              {selectedCard.month} de {selectedCard.year} — Pato {selectedCard.name} (Arte feito por Robertinho)
+              {selectedCard.month} de {selectedCard.year} — Pato {selectedCard.name} (Arte by Robertinho)
             </p>
           </div>
         </div>
