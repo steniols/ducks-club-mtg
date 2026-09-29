@@ -1,11 +1,27 @@
+import { useState } from "react";
 import { getCurrentDuck, tournaments } from "@/data/tournaments";
 import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, X } from "lucide-react";
+
+const duckCardImages: Record<string, string> = {
+  Geniva: "/manus-storage/geniva-pato_d894997f.jpeg",
+  Passos: "/manus-storage/passos-pato_aa503c8c.jpeg",
+  Vitor: "/manus-storage/vitor-pato_2ccc74c7.jpeg",
+  Bruninho: "/manus-storage/bruno-pato_e147bbf7.jpeg",
+  Nona: "/manus-storage/nona-pato_c6597fa4.jpeg",
+  Grabas: "/manus-storage/grabas-pato_e4bf6ab4.jpeg",
+};
 
 export default function DuckSection() {
   const currentDuck = getCurrentDuck();
   const lastTournament = tournaments[tournaments.length - 1];
   const duckPlayer = lastTournament.players.find(p => p.name === currentDuck);
+  const [selectedCard, setSelectedCard] = useState<{
+    name: string;
+    month: string;
+    year: number;
+    image: string;
+  } | null>(null);
 
   const duckMessages = [
     "🦆 O PATO REINA! 🦆",
@@ -101,40 +117,88 @@ export default function DuckSection() {
             ))}
           </div>
 
-          {/* Histórico de Patos */}
+          {/* Galeria de cards comemorativos */}
           <Card className="border-2 border-destructive bg-white">
             <CardContent className="p-6">
-              <h4 className="text-2xl font-bold text-destructive mb-6">Histórico de Patos</h4>
-              <div className="space-y-3">
-                {tournaments.map((tournament, index) => (
-                  <div
-                    key={tournament.id}
-                    className={`p-4 rounded-lg border-l-4 ${
-                      tournament.duck === currentDuck
-                        ? "border-destructive bg-red-50"
-                        : "border-muted bg-slate-50"
-                    }`}
-                  >
-                    <div className="flex justify-between items-center">
-                      <div>
-                        <p className="font-bold text-foreground">
-                          {tournament.month} de {tournament.year}
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          Pato: {tournament.duck}
-                        </p>
+              <div className="text-center mb-6">
+                <h4 className="text-2xl font-bold text-destructive">Cards Comemorativos dos Patos</h4>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Clique em um card para ampliar a homenagem ao último colocado do mês.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {tournaments.map((tournament) => {
+                  const image = duckCardImages[tournament.duck];
+                  if (!image) return null;
+
+                  const card = {
+                    name: tournament.duck,
+                    month: tournament.month,
+                    year: tournament.year,
+                    image,
+                  };
+
+                  return (
+                    <button
+                      key={tournament.id}
+                      type="button"
+                      onClick={() => setSelectedCard(card)}
+                      className="group text-left rounded-xl overflow-hidden border-2 border-destructive/20 bg-slate-50 shadow-md transition-all hover:-translate-y-1 hover:border-destructive hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-destructive focus-visible:ring-offset-2"
+                      aria-label={`Ampliar card do pato ${tournament.duck}, ${tournament.month} de ${tournament.year}`}
+                    >
+                      <div className="relative aspect-[3/4] overflow-hidden bg-slate-200">
+                        <img
+                          src={image}
+                          alt={`Card comemorativo do pato ${tournament.duck}`}
+                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-3 pb-3 pt-10 text-white">
+                          <p className="font-bold">{tournament.month} {tournament.year}</p>
+                          <p className="text-sm text-yellow-200">Pato {tournament.duck}</p>
+                        </div>
                       </div>
-                      <span className="text-2xl" aria-label="Pato">
-                        🦆
-                      </span>
-                    </div>
-                  </div>
-                ))}
+                    </button>
+                  );
+                })}
               </div>
             </CardContent>
           </Card>
         </div>
       </div>
+
+      {/* Lightbox */}
+      {selectedCard && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+          onClick={() => setSelectedCard(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Card comemorativo do pato ${selectedCard.name}`}
+        >
+          <div
+            className="relative flex max-h-[95vh] max-w-lg flex-col items-center"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setSelectedCard(null)}
+              className="absolute -right-2 -top-2 z-10 rounded-full bg-white p-2 text-slate-800 shadow-lg transition-colors hover:bg-yellow-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              aria-label="Fechar card ampliado"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            <img
+              src={selectedCard.image}
+              alt={`Card comemorativo ampliado do pato ${selectedCard.name}`}
+              className="max-h-[82vh] w-auto rounded-xl object-contain shadow-2xl"
+            />
+            <p className="mt-3 text-center text-lg font-bold text-white">
+              {selectedCard.month} de {selectedCard.year} — Pato {selectedCard.name}
+            </p>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
