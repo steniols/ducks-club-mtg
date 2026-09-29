@@ -29,7 +29,8 @@ export default function MetagameSection() {
     ];
   })();
 
-  const distributionData = groupedMetagame.map((deck) => ({
+  // Na visualização em barras, exibir novamente todos os decks individualmente.
+  const distributionData = metagame.map((deck) => ({
     ...deck,
     percentage: Number(((deck.appearances / totalAppearances) * 100).toFixed(1)),
   }));
