@@ -76,7 +76,7 @@ function vitePluginStorageProxy(): Plugin {
   return {
     name: "manus-storage-proxy",
     configureServer(server: ViteDevServer) {
-      server.middlewares.use("/manus-storage", async (req, res) => {
+      server.middlewares.use("/manus-storage", async (req, res, next) => {
         const key = req.url?.replace(/^\//, "");
         if (!key) {
           res.writeHead(400, { "Content-Type": "text/plain" });
@@ -86,8 +86,8 @@ function vitePluginStorageProxy(): Plugin {
         const forgeBaseUrl = (process.env.BUILT_IN_FORGE_API_URL || "").replace(/\/+$/, "");
         const forgeKey = process.env.BUILT_IN_FORGE_API_KEY;
         if (!forgeBaseUrl || !forgeKey) {
-          res.writeHead(500, { "Content-Type": "text/plain" });
-          res.end("Storage proxy not configured");
+          // Local dev: fall through to static files in client/public/manus-storage
+          next();
           return;
         }
         try {
