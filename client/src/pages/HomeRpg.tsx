@@ -7,9 +7,7 @@ import RpgMetagame from "@/components/rpg/RpgMetagame";
 import RpgTournaments from "@/components/rpg/RpgTournaments";
 import RpgGallery from "@/components/rpg/RpgGallery";
 import RpgDuck from "@/components/rpg/RpgDuck";
-
-const HERO_IMAGE =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310419663029555026/KkG9CmMFx3FsZmCnqMBDyE/ducks-club-hero-BEbmd3pRSiYwJeno4gx3m3.webp";
+import RpgHeroScene from "@/components/rpg/RpgHeroScene";
 
 /**
  * DUCKS CLUB - Tema principal (RPG: pergaminho + madeira + floresta), rota "/".
@@ -31,11 +29,10 @@ export default function HomeRpg() {
 
   return (
     <div className="rpg min-h-screen pb-20 lg:pb-0">
-      {/* Faixa do título sobre a "vila" */}
-      <header className="relative overflow-hidden border-b-4 border-[var(--rp-wood-dark)]">
-        <img src={HERO_IMAGE} alt="" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1f3d1a]/70 via-[#2c5a26]/60 to-[#2c5a26]" />
-        <div className="relative flex justify-center px-4 py-8 sm:py-12 2xl:py-16">
+      {/* Faixa do título sobre o cenário em pixel art (lago dos patos) */}
+      <header className="relative h-[17rem] overflow-hidden border-b-4 border-[var(--rp-wood-dark)] sm:h-[19rem] 2xl:h-[22rem]">
+        <RpgHeroScene />
+        <div className="relative flex justify-center px-4 pt-6 sm:pt-10 2xl:pt-14">
           <div className="rp-parch flex items-center gap-3 px-5 py-3 sm:gap-5 sm:px-10 sm:py-4">
             <img
               src="/ducks-logo.png"

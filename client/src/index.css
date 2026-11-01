@@ -346,3 +346,40 @@ html.rpg-page,
 }
 .rpg .rp-photo:hover img { filter: none; }
 .rpg .rp-photo:hover::after { opacity: 0; }
+
+/* Cenário do header (RpgHeroScene) */
+.rpg .rp-scene { image-rendering: pixelated; }
+.rpg .rp-clouds { animation: rp-clouds 90s linear infinite; }
+@keyframes rp-clouds { to { background-position-x: -640px; } }
+.rpg .rp-water { animation: rp-water 12s steps(32) infinite; }
+@keyframes rp-water { to { background-position-x: 256px; } }
+.rpg .rp-shimmer { animation: rp-shimmer 1.6s steps(1, end) infinite; }
+@keyframes rp-shimmer { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+.rpg .rp-swim { animation: rp-swim 48s linear infinite; }
+@keyframes rp-swim {
+  0% { left: -140px; transform: scaleX(1); }
+  48% { left: calc(100% + 20px); transform: scaleX(1); }
+  50% { left: calc(100% + 20px); transform: scaleX(-1); }
+  98% { left: -140px; transform: scaleX(-1); }
+  100% { left: -140px; transform: scaleX(1); }
+}
+.rpg .rp-bob { animation: rp-bob 1.4s steps(1, end) infinite; }
+@keyframes rp-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+.rpg .rp-firefly { opacity: 0; box-shadow: 0 0 6px 2px rgba(255, 242, 122, 0.7); animation: rp-firefly 4s ease-in-out infinite; }
+@keyframes rp-firefly {
+  0%, 100% { opacity: 0; transform: translate(0, 0); }
+  50% { opacity: 1; transform: translate(6px, -8px); }
+}
+.rpg .rp-star { animation: rp-twinkle 3.5s steps(1, end) infinite; }
+@keyframes rp-twinkle { 0%, 100% { opacity: 0.9; } 50% { opacity: 0.3; } }
+.rpg .rp-smoke { opacity: 0; animation: rp-smoke 4.2s ease-out infinite; }
+@keyframes rp-smoke {
+  0% { opacity: 0.8; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(14px, -48px) scale(2.2); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rpg .rp-scene * { animation: none !important; }
+  .rpg .rp-swim { left: 55%; }
+  .rpg .rp-swim + .rp-swim { left: 30%; }
+  .rpg .rp-firefly { opacity: 0.8; }
+}
