@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import RpgDuckFace from "./RpgDuckFace";
 
 /**
  * Cenário em pixel art do header (fim de tarde, floresta, taverna e lago com patos).
@@ -250,6 +251,7 @@ export default function RpgHeroScene() {
         </div>
       </div>
       <div style={layer(shore, 42)} />
+      <RpgDuckFace />
 
       {fireflies.map(([left, bottom], i) => (
         <span

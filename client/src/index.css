@@ -383,3 +383,49 @@ html.rpg-page,
   .rpg .rp-swim + .rp-swim { left: 30%; }
   .rpg .rp-firefly { opacity: 0.8; }
 }
+
+/* Pato do mês surgindo do lago (RpgDuckFace) — movimento "recortado", estilo animação de papel */
+.rpg .rp-face {
+  transform: translate(-50%, 100%);
+  filter: drop-shadow(2px 2px 0 rgba(42, 26, 16, 0.45));
+  animation: rp-face-pop 4.2s steps(3, end) forwards;
+}
+@keyframes rp-face-pop {
+  0% { transform: translate(-50%, 100%) rotate(0deg); }
+  14% { transform: translate(-50%, 6%) rotate(-7deg); }
+  24% { transform: translate(-50%, 10%) rotate(6deg); }
+  36% { transform: translate(-50%, 6%) rotate(-6deg); }
+  48% { transform: translate(-50%, 10%) rotate(7deg); }
+  60% { transform: translate(-50%, 6%) rotate(-5deg); }
+  72% { transform: translate(-50%, 8%) rotate(4deg); }
+  80% { transform: translate(-50%, 8%) rotate(0deg); }
+  100% { transform: translate(-50%, 100%) rotate(0deg); }
+}
+.rpg .rp-ripple { opacity: 0; animation: rp-ripple 4.2s steps(4, end) forwards; }
+@keyframes rp-ripple {
+  0% { opacity: 0; transform: translateX(-50%) scaleX(0.5); }
+  10% { opacity: 1; transform: translateX(-50%) scaleX(0.8); }
+  50% { opacity: 1; transform: translateX(-50%) scaleX(1.3); }
+  90% { opacity: 0.8; transform: translateX(-50%) scaleX(0.9); }
+  100% { opacity: 0; transform: translateX(-50%) scaleX(1.4); }
+}
+.rpg .rp-quack { opacity: 0; animation: rp-quack 4.2s steps(1, end) forwards; }
+.rpg .rp-quack::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  width: 8px;
+  height: 8px;
+  background: var(--rp-parch);
+  border: solid var(--rp-ink);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.rpg .rp-quack[data-side="right"]::after { left: 8px; }
+.rpg .rp-quack[data-side="left"]::after { right: 8px; }
+@keyframes rp-quack {
+  0%, 18% { opacity: 0; transform: scale(0.6); }
+  20% { opacity: 1; transform: scale(1.15); }
+  24%, 74% { opacity: 1; transform: scale(1); }
+  76%, 100% { opacity: 0; transform: scale(1); }
+}
