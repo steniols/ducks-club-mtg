@@ -10,19 +10,37 @@ export const rpgNav: { id: string; label: string; shortLabel?: string; icon: typ
   { id: "galeria", label: "Galeria", icon: Image },
 ];
 
+const NAV_EVENT = "rp-nav";
+
+/** Rola até a seção e avisa o menu, que já marca o item escolhido. */
 export const scrollToId = (id: string) => {
+  window.dispatchEvent(new CustomEvent(NAV_EVENT, { detail: id }));
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
-/** Destaca no menu a seção que está visível na tela. */
+/**
+ * Destaca no menu a seção que está visível na tela.
+ * Ao clicar num item, ele fica marcado e o destaque não muda até a rolagem terminar —
+ * senão ele "passa" pelas seções do caminho, e seções curtas no fim da página
+ * (que nunca chegam ao topo) deixariam outro item marcado.
+ */
 function useActiveSection() {
   const [active, setActive] = useState(rpgNav[0].id);
 
   useEffect(() => {
+    const visible = new Set<string>();
+    let locked = false;
+    let idle: ReturnType<typeof setTimeout>;
+
+    const pickVisible = () => {
+      const first = rpgNav.find(({ id }) => visible.has(id));
+      if (first) setActive(first.id);
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible[0]) setActive(visible[0].target.id);
+        entries.forEach((e) => (e.isIntersecting ? visible.add(e.target.id) : visible.delete(e.target.id)));
+        if (!locked) pickVisible();
       },
       { rootMargin: "-20% 0px -60% 0px" }
     );
@@ -30,7 +48,30 @@ function useActiveSection() {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
-    return () => observer.disconnect();
+
+    // A trava sai quando a página fica parada por um instante (fim da rolagem suave)
+    const unlockSoon = (ms: number) => {
+      clearTimeout(idle);
+      idle = setTimeout(() => {
+        locked = false;
+        window.removeEventListener("scroll", onScroll);
+      }, ms);
+    };
+    const onScroll = () => unlockSoon(200);
+    const onNav = (e: Event) => {
+      setActive((e as CustomEvent<string>).detail);
+      locked = true;
+      window.addEventListener("scroll", onScroll, { passive: true });
+      unlockSoon(1000); // caso a página já esteja na posição e nem role
+    };
+    window.addEventListener(NAV_EVENT, onNav);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(idle);
+      window.removeEventListener(NAV_EVENT, onNav);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return active;
