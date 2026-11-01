@@ -13,17 +13,20 @@ export default function RpgChampion({ onViewTournament }: RpgChampionProps) {
   return (
     <RpgPanel id="inicio" title="Campeão Atual" className="flex flex-col">
       <div className="flex flex-1 flex-col items-center text-center">
-        {/* Recorte 4:5 (retrato da cintura para cima), sem faixas pretas nas laterais */}
-        <div className="rp-frame rp-photo w-full max-w-72 sm:max-w-80">
-          {last.championPhoto && (
-            <img
-              src={last.championPhoto}
-              alt={last.champion}
-              className="block aspect-[4/5] w-full object-cover object-[center_40%]"
-            />
-          )}
+        {/* Quadro levemente torto, fazendo par com o cartaz do pato (inclinado para o outro lado) */}
+        <div className="flex w-full rotate-[2deg] flex-col items-center">
+          {/* Recorte 4:5 (retrato da cintura para cima), sem faixas pretas nas laterais */}
+          <div className="rp-frame rp-photo w-full max-w-72 sm:max-w-80">
+            {last.championPhoto && (
+              <img
+                src={last.championPhoto}
+                alt={last.champion}
+                className="block aspect-[4/5] w-full object-cover object-[center_40%]"
+              />
+            )}
+          </div>
+          <p className="rp-plate -mt-3 text-xl sm:text-2xl">{last.champion}</p>
         </div>
-        <p className="rp-plate -mt-3 text-xl sm:text-2xl">{last.champion}</p>
 
         <dl className="mt-4 grid w-full grid-cols-3 gap-2 text-sm">
           <div>

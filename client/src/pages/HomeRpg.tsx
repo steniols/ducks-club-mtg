@@ -8,6 +8,7 @@ import RpgTournaments from "@/components/rpg/RpgTournaments";
 import RpgGallery from "@/components/rpg/RpgGallery";
 import RpgDuck from "@/components/rpg/RpgDuck";
 import RpgHeroScene from "@/components/rpg/RpgHeroScene";
+import RpgSoundToggle from "@/components/rpg/RpgSoundToggle";
 
 /**
  * DUCKS CLUB - Tema principal (RPG: pergaminho + madeira + floresta), rota "/".
@@ -32,6 +33,7 @@ export default function HomeRpg() {
       {/* Faixa do título sobre o cenário em pixel art (lago dos patos) */}
       <header className="relative h-[17rem] overflow-hidden border-b-4 border-[var(--rp-wood-dark)] sm:h-[19rem] 2xl:h-[22rem]">
         <RpgHeroScene />
+        <RpgSoundToggle />
         <div className="relative flex justify-center px-4 pt-6 sm:pt-10 2xl:pt-14">
           <div className="rp-parch flex items-center gap-3 px-5 py-3 sm:gap-5 sm:px-10 sm:py-4">
             <img

@@ -1,6 +1,16 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* VT323 servida localmente: o size-adjust aumenta a fonte (que é miúda) sem mexer nos tamanhos do Tailwind */
+@font-face {
+  font-family: 'VT323';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/vt323-latin.woff2') format('woff2');
+  size-adjust: 125%;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -197,7 +207,7 @@
   --rp-red: #a8322a;
   --rp-green: #2f6b2a;
 
-  font-family: 'Pixelify Sans', 'Inter', sans-serif;
+  font-family: 'VT323', 'Inter', sans-serif;
   color: var(--rp-ink);
   background-color: #2c5a26;
   background-image:
@@ -392,13 +402,13 @@ html.rpg-page,
 }
 @keyframes rp-face-pop {
   0% { transform: translate(-50%, 100%) rotate(0deg); }
-  14% { transform: translate(-50%, 6%) rotate(-7deg); }
-  24% { transform: translate(-50%, 10%) rotate(6deg); }
-  36% { transform: translate(-50%, 6%) rotate(-6deg); }
-  48% { transform: translate(-50%, 10%) rotate(7deg); }
-  60% { transform: translate(-50%, 6%) rotate(-5deg); }
-  72% { transform: translate(-50%, 8%) rotate(4deg); }
-  80% { transform: translate(-50%, 8%) rotate(0deg); }
+  14% { transform: translate(-50%, -3%) rotate(-7deg); }
+  24% { transform: translate(-50%, 1%) rotate(6deg); }
+  36% { transform: translate(-50%, -3%) rotate(-6deg); }
+  48% { transform: translate(-50%, 1%) rotate(7deg); }
+  60% { transform: translate(-50%, -3%) rotate(-5deg); }
+  72% { transform: translate(-50%, -1%) rotate(4deg); }
+  80% { transform: translate(-50%, -1%) rotate(0deg); }
   100% { transform: translate(-50%, 100%) rotate(0deg); }
 }
 .rpg .rp-ripple { opacity: 0; animation: rp-ripple 4.2s steps(4, end) forwards; }
