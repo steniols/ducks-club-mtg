@@ -370,6 +370,8 @@ export const calculatePlayerStats = () => {
     // O nome apareceu como “Steniols” nos torneios anteriores e como “Stenio”
     // nos torneios mais recentes; ambos representam o mesmo jogador.
     if (name === "Steniols" || name === "Stenio") return "Stenio";
+    // “Bruno” e “Bruninho” representam o mesmo jogador no histórico.
+    if (name === "Bruno" || name === "Bruninho") return "Bruninho";
     return name;
   };
 
