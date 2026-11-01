@@ -73,6 +73,13 @@ const galleryImages: GalleryImage[] = [
     url: "/manus-storage/foto-galeria_be9c89fe.jpeg",
     description: "Torneio de Setembro - Will levanta o troféu!",
   },
+  {
+    id: 10,
+    month: "Outubro",
+    year: 2026,
+    url: "/manus-storage/galeria-outubro_39a7287d.jpeg",
+    description: "Torneio de Outubro - Stenio conquista o título!",
+  },
 ];
 
 export default function GallerySection() {

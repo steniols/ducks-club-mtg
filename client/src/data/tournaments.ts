@@ -226,6 +226,26 @@ export const tournaments: Tournament[] = [
     ],
     decks: ["Mono Red Madness", "Mono Red Rally", "Deck não informado", "Rakdos Madness", "UW Familiars", "Spy Walls", "Boros Moxite", "Tron Monsters", "Altar Tron"],
   },
+  {
+    id: 10,
+    month: "Outubro",
+    year: 2026,
+    champion: "Stenio",
+    championPhoto: "/manus-storage/stenio-campeao-outubro_c98bd7ea.jpeg",
+    duck: "Hovelha",
+    duckPhoto: "/manus-storage/Hovelha-pato-de-outubro_6dbd02c3.jpg",
+    players: [
+      { name: "Stenio", points: 15, decks: ["Mono White Convoke"] },
+      { name: "Farinha", points: 9, decks: ["UB Faeries"] },
+      { name: "Moa", points: 6, decks: ["Walls Combo"] },
+      { name: "Passos", points: 6, decks: ["Mono U Terror"] },
+      { name: "Robertinho", points: 3, decks: ["UW Familiars"] },
+      { name: "Vitor", points: 3, decks: ["BW Blade"] },
+      { name: "Eron", points: 0, decks: ["UB Control"] },
+      { name: "Hovelha", points: 0, decks: ["Mono White Convoke"] },
+    ],
+    decks: ["Mono White Convoke", "UB Faeries", "Walls Combo", "Mono U Terror", "UW Familiars", "BW Blade", "UB Control"],
+  },
 ];
 
 export interface MetagameStats {
@@ -327,6 +347,9 @@ const getColorForDeck = (deckName: string): string => {
     "UW Familiars": "#6495ED",
     "Deck não informado": "#A9A9A9",
     "Boros Moxite": "#FF8C00",
+    "Mono White Convoke": "#F8FAFC",
+    "UB Faeries": "#4169E1",
+    "UB Control": "#191970",
   };
   return colorMap[deckName] || "#666666";
 };
@@ -345,7 +368,7 @@ export const calculatePlayerStats = () => {
 
   const normalizePlayerName = (name: string): string => {
     // O nome apareceu como “Steniols” nos torneios anteriores e como “Stenio”
-    // em setembro; ambos representam o mesmo jogador.
+    // nos torneios mais recentes; ambos representam o mesmo jogador.
     if (name === "Steniols" || name === "Stenio") return "Stenio";
     return name;
   };

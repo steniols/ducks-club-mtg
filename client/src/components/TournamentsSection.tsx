@@ -20,7 +20,7 @@ export default function TournamentsSection() {
           Escolha um mês para conferir o ranking, o campeão, o pato e os decks utilizados.
         </p>
 
-        {/* Filtro mensal: setembro aparece selecionado por padrão */}
+        {/* Filtro mensal: outubro aparece selecionado por padrão */}
         <div className="max-w-4xl mx-auto mb-10">
           <div className="flex gap-2 overflow-x-auto pb-2 snap-x" role="tablist" aria-label="Filtrar torneio por mês">
             {tournaments.map((tournament) => {
