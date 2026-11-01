@@ -67,7 +67,7 @@ export const tournaments: Tournament[] = [
     champion: "Farinha",
     championPhoto: "/manus-storage/farinha_de127be9.png",
     duck: "Vitor",
-    duckPhoto: "/manus-storage/vitor_ccc9bbc4.png",
+    duckPhoto: "/manus-storage/vitor_ccc9bbc4_85199291.png",
     players: [
       { name: "Farinha", points: 15, decks: ["Jeskai Synthesizer"] },
       { name: "Steniols", points: 12, decks: ["White Weenie"] },
@@ -142,7 +142,7 @@ export const tournaments: Tournament[] = [
     champion: "Robertinho",
     championPhoto: "/manus-storage/campeao_9feb08c2.jpg",
     duck: "Vitor",
-    duckPhoto: "/manus-storage/vitor-pato-do-mes_22698ff7.png",
+    duckPhoto: "/manus-storage/vitor-pato-do-mes_22698ff7_d858d828.png",
     players: [
       { name: "Robertinho", points: 15, decks: ["Grixis Affinity"] },
       { name: "Renan", points: 12, decks: ["UR Skred"] },
