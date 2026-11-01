@@ -25,11 +25,13 @@ export default function ChampionSection() {
           </h2>
           
           <div className="bg-white rounded-lg shadow-2xl p-8 border-4 border-primary">
-            <img 
-              src={lastTournament.championPhoto || "/robertinho-maio.jpeg"}
-              alt={champion}
-              className="w-64 h-64 rounded-lg object-cover mx-auto mb-6 shadow-lg border-2 border-primary"
-            />
+            <div className="flex justify-center">
+              <img
+                src={lastTournament.championPhoto || "/robertinho-maio.jpeg"}
+                alt={champion}
+                className="w-64 h-[420px] md:h-[460px] rounded-lg object-contain object-center mx-auto mb-6 shadow-lg border-2 border-primary bg-slate-50"
+              />
+            </div>
             <p className="text-4xl md:text-7xl font-bold text-primary mb-4 drop-shadow-lg">
               {champion}
             </p>

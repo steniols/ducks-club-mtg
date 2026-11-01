@@ -64,7 +64,7 @@ export default function TournamentsSection() {
 
             <CardContent className="p-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-accent/10 border-2 border-accent rounded-lg p-6 flex items-center gap-4">
+                <div className="bg-accent/10 border-2 border-accent rounded-lg p-6 flex flex-col items-center justify-center gap-4 text-center">
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-muted-foreground mb-2">CAMPEÃO</p>
                     <p className="text-2xl font-bold text-primary mb-2">
@@ -81,7 +81,7 @@ export default function TournamentsSection() {
                   )}
                 </div>
 
-                <div className="bg-destructive/10 border-2 border-destructive rounded-lg p-6 flex items-center gap-4">
+                <div className="bg-destructive/10 border-2 border-destructive rounded-lg p-6 flex flex-col items-center justify-center gap-4 text-center">
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-muted-foreground mb-2">O PATO</p>
                     <p className="text-2xl font-bold text-destructive mb-2">

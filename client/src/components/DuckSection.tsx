@@ -58,21 +58,21 @@ export default function DuckSection() {
             <CardContent className="p-0">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
                 {/* Foto */}
-                <div className="flex items-center justify-center bg-destructive/5 p-8">
+                <div className="flex min-h-[360px] items-center justify-center bg-destructive/5 p-6 md:min-h-[520px] md:p-8">
                   <img
                     src={lastTournament.duckPhoto || "/passos-maio.jpeg"}
                     alt={currentDuck}
-                    className="w-full h-full object-cover rounded-lg shadow-lg"
+                    className="max-h-[500px] w-auto max-w-full rounded-lg object-contain object-center shadow-lg"
                   />
                 </div>
 
                 {/* Info */}
-                <div className="p-8 flex flex-col justify-center">
+                <div className="p-8 flex flex-col items-center justify-center text-center">
                   <h3 className="text-4xl font-bold text-destructive mb-4">
                     {currentDuck}
                   </h3>
 
-                  <div className="space-y-4 mb-6">
+                  <div className="w-full space-y-4 mb-6">
                     <div className="bg-red-50 p-4 rounded-lg border-2 border-destructive">
                       <p className="text-sm text-muted-foreground font-semibold mb-2">POSIÇÃO NO ÚLTIMO TORNEIO</p>
                       <p className="text-3xl font-bold text-destructive">
