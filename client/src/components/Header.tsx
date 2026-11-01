@@ -24,7 +24,7 @@ export default function Header() {
   return (
     <header className="bg-white shadow-md border-b-4 border-primary sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <Link href="/classico" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <img 
             src="/ducks-logo.png" 
             alt="DUCKS CLUB Logo" 
@@ -38,7 +38,7 @@ export default function Header() {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-6 items-center">
-          <Link href="/" className="text-foreground hover:text-primary font-medium transition-colors">
+          <Link href="/classico" className="text-foreground hover:text-primary font-medium transition-colors">
             Home
           </Link>
           <button 
@@ -86,7 +86,7 @@ export default function Header() {
         <div className="md:hidden bg-white border-t-2 border-primary">
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
             <Link 
-              href="/" 
+              href="/classico" 
               className="text-foreground hover:text-primary font-medium transition-colors py-2"
               onClick={() => setIsOpen(false)}
             >

@@ -3,7 +3,7 @@ import { getCurrentDuck, tournaments } from "@/data/tournaments";
 import { Card, CardContent } from "@/components/ui/card";
 import { AlertCircle, X } from "lucide-react";
 
-const duckCardImages: Record<string, string> = {
+export const duckCardImages: Record<string, string> = {
   Geniva: "/manus-storage/geniva-pato_d894997f.jpeg",
   Passos: "/manus-storage/passos-pato_aa503c8c.jpeg",
   Vitor: "/manus-storage/vitor-pato_2ccc74c7.jpeg",

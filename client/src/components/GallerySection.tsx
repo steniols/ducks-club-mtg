@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
-interface GalleryImage {
+export interface GalleryImage {
   id: number;
   month: string;
   year: number;
@@ -9,7 +9,7 @@ interface GalleryImage {
   description: string;
 }
 
-const galleryImages: GalleryImage[] = [
+export const galleryImages: GalleryImage[] = [
   {
     id: 1,
     month: "Janeiro",
