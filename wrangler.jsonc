@@ -1,0 +1,10 @@
+// Deploy no Cloudflare Workers: só arquivos estáticos (o build do Vite vai para dist/public)
+{
+  "name": "ducks-club",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist/public",
+    // Rotas do app (ex.: /classico) abrem o index.html em vez de 404
+    "not_found_handling": "single-page-application"
+  }
+}
