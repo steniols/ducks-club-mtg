@@ -10,6 +10,7 @@ export const duckCardImages: Record<string, string> = {
   Bruninho: "/manus-storage/bruno-pato_e147bbf7.jpeg",
   Nona: "/manus-storage/nona-pato_c6597fa4.jpeg",
   Grabas: "/manus-storage/grabas-pato_e4bf6ab4.jpeg",
+  Hovelha: "/manus-storage/hovelha-pato.jpg",
 };
 
 export default function DuckSection() {

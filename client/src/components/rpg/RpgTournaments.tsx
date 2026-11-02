@@ -22,7 +22,8 @@ export default function RpgTournaments({ selectedId, onSelect }: RpgTournamentsP
       </p>
       <div className="-mx-1 mb-4 overflow-x-auto px-1 pb-2" role="tablist" aria-label="Filtrar torneio por mês">
         <div className="flex min-w-max gap-2">
-          {tournaments.map((tournament) => (
+          {/* Mais recente primeiro */}
+          {[...tournaments].reverse().map((tournament) => (
             <button
               key={tournament.id}
               type="button"
