@@ -15,14 +15,16 @@ export default function RpgChampion({ onViewTournament }: RpgChampionProps) {
       <div className="flex flex-1 flex-col items-center text-center">
         {/* Quadro levemente torto, fazendo par com o cartaz do pato (inclinado para o outro lado) */}
         <div className="flex w-full rotate-[2deg] flex-col items-center">
-          {/* Recorte 4:5 (retrato da cintura para cima), sem faixas pretas nas laterais */}
-          <div className="rp-frame rp-photo w-full max-w-72 sm:max-w-80">
+          {/* Mesmo cartaz do pato: papel com borda escura e sombra; recorte 4:5 (retrato da cintura para cima) */}
+          <div className="w-full max-w-72 border-[3px] border-[var(--rp-wood-dark)] bg-[#ead29a] p-3 shadow-[4px_4px_0_rgba(0,0,0,0.35)] sm:max-w-80">
             {last.championPhoto && (
-              <img
-                src={last.championPhoto}
-                alt={last.champion}
-                className="block aspect-[4/5] w-full object-cover object-[center_40%]"
-              />
+              <span className="rp-photo border-2 border-[var(--rp-wood-dark)]">
+                <img
+                  src={last.championPhoto}
+                  alt={last.champion}
+                  className="block aspect-[4/5] w-full object-cover object-[center_40%]"
+                />
+              </span>
             )}
           </div>
           <p className="rp-plate -mt-3 text-xl sm:text-2xl">{last.champion}</p>
